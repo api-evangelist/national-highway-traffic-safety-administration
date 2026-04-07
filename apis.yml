@@ -13,15 +13,15 @@ modified: '2026-03-16'
 specificationVersion: '0.19'
 tags:
   - Federal Government
+  - Safety
   - Transportation
   - Vehicles
-  - Safety
 apis:
   - aid: national-highway-traffic-safety-administration:vehicle-api
     name: NHTSA Vehicle API
     tags:
-      - Vehicles
       - Safety
+      - Vehicles
     humanURL: https://vpic.nhtsa.dot.gov/api/
     baseURL: https://vpic.nhtsa.dot.gov/api/
     properties:
