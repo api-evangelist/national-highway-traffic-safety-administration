@@ -1,0 +1,213 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: NHTSA vPIC Vehicle API — Manufacturers
+  description: 'NHTSA vPIC Vehicle API — Manufacturers. 4 operations. Lead operation: Decode a World Manufacturer Identifier.
+    Self-contained Naftiko capability covering one National Highway Traffic Safety Administration business surface.'
+  tags:
+  - National Highway Traffic Safety Administration
+  - Manufacturers
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    NATIONAL_HIGHWAY_TRAFFIC_SAFETY_ADMINISTRATION_API_KEY: NATIONAL_HIGHWAY_TRAFFIC_SAFETY_ADMINISTRATION_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: national-highway-traffic-safety-administration-manufacturers
+    baseUri: https://vpic.nhtsa.dot.gov/api/vehicles
+    description: NHTSA vPIC Vehicle API — Manufacturers business capability. Self-contained, no shared references.
+    resources:
+    - name: DecodeWMI-wmi
+      path: /DecodeWMI/{wmi}
+      operations:
+      - name: get
+        method: GET
+        description: Decode a World Manufacturer Identifier
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: wmi
+          in: path
+          type: string
+          required: true
+    - name: GetAllManufacturers
+      path: /GetAllManufacturers
+      operations:
+      - name: get
+        method: GET
+        description: Get all manufacturers
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: ManufacturerType
+          in: query
+          type: string
+        - name: page
+          in: query
+          type: integer
+    - name: GetManufacturerDetails-manufacturer
+      path: /GetManufacturerDetails/{manufacturer}
+      operations:
+      - name: get
+        method: GET
+        description: Get manufacturer details
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: manufacturer
+          in: path
+          type: string
+          required: true
+        - name: page
+          in: query
+          type: integer
+    - name: GetWMIsForManufacturer-manufacturer
+      path: /GetWMIsForManufacturer/{manufacturer}
+      operations:
+      - name: get
+        method: GET
+        description: Get WMIs for a manufacturer
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: manufacturer
+          in: path
+          type: string
+          required: true
+        - name: vehicleType
+          in: query
+          type: string
+  exposes:
+  - type: rest
+    namespace: national-highway-traffic-safety-administration-manufacturers-rest
+    port: 8080
+    description: REST adapter for NHTSA vPIC Vehicle API — Manufacturers. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/decodewmi/{wmi}
+      name: decodewmi-wmi
+      description: REST surface for DecodeWMI-wmi.
+      operations:
+      - method: GET
+        name: get
+        description: Decode a World Manufacturer Identifier
+        call: national-highway-traffic-safety-administration-manufacturers.get
+        with:
+          wmi: rest.wmi
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/getallmanufacturers
+      name: getallmanufacturers
+      description: REST surface for GetAllManufacturers.
+      operations:
+      - method: GET
+        name: get
+        description: Get all manufacturers
+        call: national-highway-traffic-safety-administration-manufacturers.get
+        with:
+          ManufacturerType: rest.ManufacturerType
+          page: rest.page
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/getmanufacturerdetails/{manufacturer}
+      name: getmanufacturerdetails-manufacturer
+      description: REST surface for GetManufacturerDetails-manufacturer.
+      operations:
+      - method: GET
+        name: get
+        description: Get manufacturer details
+        call: national-highway-traffic-safety-administration-manufacturers.get
+        with:
+          manufacturer: rest.manufacturer
+          page: rest.page
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/getwmisformanufacturer/{manufacturer}
+      name: getwmisformanufacturer-manufacturer
+      description: REST surface for GetWMIsForManufacturer-manufacturer.
+      operations:
+      - method: GET
+        name: get
+        description: Get WMIs for a manufacturer
+        call: national-highway-traffic-safety-administration-manufacturers.get
+        with:
+          manufacturer: rest.manufacturer
+          vehicleType: rest.vehicleType
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: national-highway-traffic-safety-administration-manufacturers-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for NHTSA vPIC Vehicle API — Manufacturers. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: decode-world-manufacturer-identifier
+      description: Decode a World Manufacturer Identifier
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: national-highway-traffic-safety-administration-manufacturers.get
+      with:
+        wmi: tools.wmi
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-all-manufacturers
+      description: Get all manufacturers
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: national-highway-traffic-safety-administration-manufacturers.get
+      with:
+        ManufacturerType: tools.ManufacturerType
+        page: tools.page
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-manufacturer-details
+      description: Get manufacturer details
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: national-highway-traffic-safety-administration-manufacturers.get
+      with:
+        manufacturer: tools.manufacturer
+        page: tools.page
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-wmis-manufacturer
+      description: Get WMIs for a manufacturer
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: national-highway-traffic-safety-administration-manufacturers.get
+      with:
+        manufacturer: tools.manufacturer
+        vehicleType: tools.vehicleType
+      outputParameters:
+      - type: object
+        mapping: $.

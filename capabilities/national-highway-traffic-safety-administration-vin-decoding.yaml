@@ -1,0 +1,205 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: NHTSA vPIC Vehicle API — VIN Decoding
+  description: 'NHTSA vPIC Vehicle API — VIN Decoding. 5 operations. Lead operation: Batch decode multiple VINs. Self-contained
+    Naftiko capability covering one National Highway Traffic Safety Administration business surface.'
+  tags:
+  - National Highway Traffic Safety Administration
+  - VIN Decoding
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    NATIONAL_HIGHWAY_TRAFFIC_SAFETY_ADMINISTRATION_API_KEY: NATIONAL_HIGHWAY_TRAFFIC_SAFETY_ADMINISTRATION_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: national-highway-traffic-safety-administration-vin-decoding
+    baseUri: https://vpic.nhtsa.dot.gov/api/vehicles
+    description: NHTSA vPIC Vehicle API — VIN Decoding business capability. Self-contained, no shared references.
+    resources:
+    - name: DecodeVINValuesBatch
+      path: /DecodeVINValuesBatch/
+      operations:
+      - name: post
+        method: POST
+        description: Batch decode multiple VINs
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: DecodeVin-vin
+      path: /DecodeVin/{vin}
+      operations:
+      - name: get
+        method: GET
+        description: Decode a VIN
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: DecodeVinExtended-vin
+      path: /DecodeVinExtended/{vin}
+      operations:
+      - name: get
+        method: GET
+        description: Decode a VIN with extended details
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: DecodeVinValues-vin
+      path: /DecodeVinValues/{vin}
+      operations:
+      - name: get
+        method: GET
+        description: Decode a VIN (flat values)
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: DecodeVinValuesExtended-vin
+      path: /DecodeVinValuesExtended/{vin}
+      operations:
+      - name: get
+        method: GET
+        description: Decode a VIN with extended details (flat values)
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: national-highway-traffic-safety-administration-vin-decoding-rest
+    port: 8080
+    description: REST adapter for NHTSA vPIC Vehicle API — VIN Decoding. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/decodevinvaluesbatch
+      name: decodevinvaluesbatch
+      description: REST surface for DecodeVINValuesBatch.
+      operations:
+      - method: POST
+        name: post
+        description: Batch decode multiple VINs
+        call: national-highway-traffic-safety-administration-vin-decoding.post
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/decodevin/{vin}
+      name: decodevin-vin
+      description: REST surface for DecodeVin-vin.
+      operations:
+      - method: GET
+        name: get
+        description: Decode a VIN
+        call: national-highway-traffic-safety-administration-vin-decoding.get
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/decodevinextended/{vin}
+      name: decodevinextended-vin
+      description: REST surface for DecodeVinExtended-vin.
+      operations:
+      - method: GET
+        name: get
+        description: Decode a VIN with extended details
+        call: national-highway-traffic-safety-administration-vin-decoding.get
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/decodevinvalues/{vin}
+      name: decodevinvalues-vin
+      description: REST surface for DecodeVinValues-vin.
+      operations:
+      - method: GET
+        name: get
+        description: Decode a VIN (flat values)
+        call: national-highway-traffic-safety-administration-vin-decoding.get
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/decodevinvaluesextended/{vin}
+      name: decodevinvaluesextended-vin
+      description: REST surface for DecodeVinValuesExtended-vin.
+      operations:
+      - method: GET
+        name: get
+        description: Decode a VIN with extended details (flat values)
+        call: national-highway-traffic-safety-administration-vin-decoding.get
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: national-highway-traffic-safety-administration-vin-decoding-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for NHTSA vPIC Vehicle API — VIN Decoding. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: batch-decode-multiple-vins
+      description: Batch decode multiple VINs
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: national-highway-traffic-safety-administration-vin-decoding.post
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: decode-vin
+      description: Decode a VIN
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: national-highway-traffic-safety-administration-vin-decoding.get
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: decode-vin-extended-details
+      description: Decode a VIN with extended details
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: national-highway-traffic-safety-administration-vin-decoding.get
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: decode-vin-flat-values
+      description: Decode a VIN (flat values)
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: national-highway-traffic-safety-administration-vin-decoding.get
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: decode-vin-extended-details-flat
+      description: Decode a VIN with extended details (flat values)
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: national-highway-traffic-safety-administration-vin-decoding.get
+      outputParameters:
+      - type: object
+        mapping: $.

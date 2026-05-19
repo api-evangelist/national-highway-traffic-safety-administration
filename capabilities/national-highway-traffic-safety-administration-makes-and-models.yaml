@@ -1,0 +1,372 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: NHTSA vPIC Vehicle API — Makes and Models
+  description: 'NHTSA vPIC Vehicle API — Makes and Models. 8 operations. Lead operation: Get all makes. Self-contained Naftiko
+    capability covering one National Highway Traffic Safety Administration business surface.'
+  tags:
+  - National Highway Traffic Safety Administration
+  - Makes and Models
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    NATIONAL_HIGHWAY_TRAFFIC_SAFETY_ADMINISTRATION_API_KEY: NATIONAL_HIGHWAY_TRAFFIC_SAFETY_ADMINISTRATION_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: national-highway-traffic-safety-administration-makes-and-models
+    baseUri: https://vpic.nhtsa.dot.gov/api/vehicles
+    description: NHTSA vPIC Vehicle API — Makes and Models business capability. Self-contained, no shared references.
+    resources:
+    - name: GetAllMakes
+      path: /GetAllMakes
+      operations:
+      - name: get
+        method: GET
+        description: Get all makes
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: GetMakeForManufacturer-manufacturer
+      path: /GetMakeForManufacturer/{manufacturer}
+      operations:
+      - name: get
+        method: GET
+        description: Get makes for a manufacturer
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: manufacturer
+          in: path
+          type: string
+          required: true
+    - name: GetMakesForManufacturerAndYear-manufacturer
+      path: /GetMakesForManufacturerAndYear/{manufacturer}
+      operations:
+      - name: get
+        method: GET
+        description: Get makes for a manufacturer and year
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: manufacturer
+          in: path
+          type: string
+          required: true
+        - name: year
+          in: query
+          type: integer
+          required: true
+    - name: GetMakesForVehicleType-vehicleType
+      path: /GetMakesForVehicleType/{vehicleType}
+      operations:
+      - name: get
+        method: GET
+        description: Get makes for a vehicle type
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: vehicleType
+          in: path
+          type: string
+          required: true
+    - name: GetModelsForMake-makeName
+      path: /GetModelsForMake/{makeName}
+      operations:
+      - name: get
+        method: GET
+        description: Get models for a make
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: makeName
+          in: path
+          type: string
+          required: true
+    - name: GetModelsForMakeId-makeId
+      path: /GetModelsForMakeId/{makeId}
+      operations:
+      - name: get
+        method: GET
+        description: Get models for a make ID
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: makeId
+          in: path
+          type: integer
+          required: true
+    - name: GetModelsForMakeIdYear-makeId-makeId-modelyear-modelyear
+      path: /GetModelsForMakeIdYear/makeId/{makeId}/modelyear/{modelyear}
+      operations:
+      - name: get
+        method: GET
+        description: Get models for a make ID and model year
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: makeId
+          in: path
+          type: integer
+          required: true
+        - name: modelyear
+          in: path
+          type: integer
+          required: true
+    - name: GetModelsForMakeYear-make-make-modelyear-modelyear
+      path: /GetModelsForMakeYear/make/{make}/modelyear/{modelyear}
+      operations:
+      - name: get
+        method: GET
+        description: Get models for a make and model year
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: make
+          in: path
+          type: string
+          required: true
+        - name: modelyear
+          in: path
+          type: integer
+          required: true
+  exposes:
+  - type: rest
+    namespace: national-highway-traffic-safety-administration-makes-and-models-rest
+    port: 8080
+    description: REST adapter for NHTSA vPIC Vehicle API — Makes and Models. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/getallmakes
+      name: getallmakes
+      description: REST surface for GetAllMakes.
+      operations:
+      - method: GET
+        name: get
+        description: Get all makes
+        call: national-highway-traffic-safety-administration-makes-and-models.get
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/getmakeformanufacturer/{manufacturer}
+      name: getmakeformanufacturer-manufacturer
+      description: REST surface for GetMakeForManufacturer-manufacturer.
+      operations:
+      - method: GET
+        name: get
+        description: Get makes for a manufacturer
+        call: national-highway-traffic-safety-administration-makes-and-models.get
+        with:
+          manufacturer: rest.manufacturer
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/getmakesformanufacturerandyear/{manufacturer}
+      name: getmakesformanufacturerandyear-manufacturer
+      description: REST surface for GetMakesForManufacturerAndYear-manufacturer.
+      operations:
+      - method: GET
+        name: get
+        description: Get makes for a manufacturer and year
+        call: national-highway-traffic-safety-administration-makes-and-models.get
+        with:
+          manufacturer: rest.manufacturer
+          year: rest.year
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/getmakesforvehicletype/{vehicletype}
+      name: getmakesforvehicletype-vehicletype
+      description: REST surface for GetMakesForVehicleType-vehicleType.
+      operations:
+      - method: GET
+        name: get
+        description: Get makes for a vehicle type
+        call: national-highway-traffic-safety-administration-makes-and-models.get
+        with:
+          vehicleType: rest.vehicleType
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/getmodelsformake/{makename}
+      name: getmodelsformake-makename
+      description: REST surface for GetModelsForMake-makeName.
+      operations:
+      - method: GET
+        name: get
+        description: Get models for a make
+        call: national-highway-traffic-safety-administration-makes-and-models.get
+        with:
+          makeName: rest.makeName
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/getmodelsformakeid/{makeid}
+      name: getmodelsformakeid-makeid
+      description: REST surface for GetModelsForMakeId-makeId.
+      operations:
+      - method: GET
+        name: get
+        description: Get models for a make ID
+        call: national-highway-traffic-safety-administration-makes-and-models.get
+        with:
+          makeId: rest.makeId
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/getmodelsformakeidyear/makeid/{makeid}/modelyear/{modelyear}
+      name: getmodelsformakeidyear-makeid-makeid-modelyear-modelyear
+      description: REST surface for GetModelsForMakeIdYear-makeId-makeId-modelyear-modelyear.
+      operations:
+      - method: GET
+        name: get
+        description: Get models for a make ID and model year
+        call: national-highway-traffic-safety-administration-makes-and-models.get
+        with:
+          makeId: rest.makeId
+          modelyear: rest.modelyear
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/getmodelsformakeyear/make/{make}/modelyear/{modelyear}
+      name: getmodelsformakeyear-make-make-modelyear-modelyear
+      description: REST surface for GetModelsForMakeYear-make-make-modelyear-modelyear.
+      operations:
+      - method: GET
+        name: get
+        description: Get models for a make and model year
+        call: national-highway-traffic-safety-administration-makes-and-models.get
+        with:
+          make: rest.make
+          modelyear: rest.modelyear
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: national-highway-traffic-safety-administration-makes-and-models-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for NHTSA vPIC Vehicle API — Makes and Models. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: get-all-makes
+      description: Get all makes
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: national-highway-traffic-safety-administration-makes-and-models.get
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-makes-manufacturer
+      description: Get makes for a manufacturer
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: national-highway-traffic-safety-administration-makes-and-models.get
+      with:
+        manufacturer: tools.manufacturer
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-makes-manufacturer-and-year
+      description: Get makes for a manufacturer and year
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: national-highway-traffic-safety-administration-makes-and-models.get
+      with:
+        manufacturer: tools.manufacturer
+        year: tools.year
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-makes-vehicle-type
+      description: Get makes for a vehicle type
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: national-highway-traffic-safety-administration-makes-and-models.get
+      with:
+        vehicleType: tools.vehicleType
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-models-make
+      description: Get models for a make
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: national-highway-traffic-safety-administration-makes-and-models.get
+      with:
+        makeName: tools.makeName
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-models-make-id
+      description: Get models for a make ID
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: national-highway-traffic-safety-administration-makes-and-models.get
+      with:
+        makeId: tools.makeId
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-models-make-id-and
+      description: Get models for a make ID and model year
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: national-highway-traffic-safety-administration-makes-and-models.get
+      with:
+        makeId: tools.makeId
+        modelyear: tools.modelyear
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-models-make-and-model
+      description: Get models for a make and model year
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: national-highway-traffic-safety-administration-makes-and-models.get
+      with:
+        make: tools.make
+        modelyear: tools.modelyear
+      outputParameters:
+      - type: object
+        mapping: $.

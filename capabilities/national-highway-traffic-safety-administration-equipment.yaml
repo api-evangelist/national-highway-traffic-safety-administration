@@ -1,0 +1,203 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: NHTSA vPIC Vehicle API — Equipment
+  description: 'NHTSA vPIC Vehicle API — Equipment. 3 operations. Lead operation: Get Canadian vehicle specifications. Self-contained
+    Naftiko capability covering one National Highway Traffic Safety Administration business surface.'
+  tags:
+  - National Highway Traffic Safety Administration
+  - Equipment
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    NATIONAL_HIGHWAY_TRAFFIC_SAFETY_ADMINISTRATION_API_KEY: NATIONAL_HIGHWAY_TRAFFIC_SAFETY_ADMINISTRATION_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: national-highway-traffic-safety-administration-equipment
+    baseUri: https://vpic.nhtsa.dot.gov/api/vehicles
+    description: NHTSA vPIC Vehicle API — Equipment business capability. Self-contained, no shared references.
+    resources:
+    - name: GetCanadianVehicleSpecifications
+      path: /GetCanadianVehicleSpecifications/
+      operations:
+      - name: get
+        method: GET
+        description: Get Canadian vehicle specifications
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: year
+          in: query
+          type: integer
+          required: true
+        - name: make
+          in: query
+          type: string
+          required: true
+        - name: model
+          in: query
+          type: string
+        - name: units
+          in: query
+          type: string
+    - name: GetEquipmentPlantCodes
+      path: /GetEquipmentPlantCodes
+      operations:
+      - name: get
+        method: GET
+        description: Get equipment plant codes
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: year
+          in: query
+          type: integer
+          required: true
+        - name: equipmentType
+          in: query
+          type: integer
+        - name: reportType
+          in: query
+          type: string
+    - name: GetParts
+      path: /GetParts
+      operations:
+      - name: get
+        method: GET
+        description: Get parts
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: type
+          in: query
+          type: integer
+        - name: fromDate
+          in: query
+          type: string
+        - name: toDate
+          in: query
+          type: string
+        - name: manufacturer
+          in: query
+          type: string
+        - name: page
+          in: query
+          type: integer
+  exposes:
+  - type: rest
+    namespace: national-highway-traffic-safety-administration-equipment-rest
+    port: 8080
+    description: REST adapter for NHTSA vPIC Vehicle API — Equipment. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/getcanadianvehiclespecifications
+      name: getcanadianvehiclespecifications
+      description: REST surface for GetCanadianVehicleSpecifications.
+      operations:
+      - method: GET
+        name: get
+        description: Get Canadian vehicle specifications
+        call: national-highway-traffic-safety-administration-equipment.get
+        with:
+          year: rest.year
+          make: rest.make
+          model: rest.model
+          units: rest.units
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/getequipmentplantcodes
+      name: getequipmentplantcodes
+      description: REST surface for GetEquipmentPlantCodes.
+      operations:
+      - method: GET
+        name: get
+        description: Get equipment plant codes
+        call: national-highway-traffic-safety-administration-equipment.get
+        with:
+          year: rest.year
+          equipmentType: rest.equipmentType
+          reportType: rest.reportType
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/getparts
+      name: getparts
+      description: REST surface for GetParts.
+      operations:
+      - method: GET
+        name: get
+        description: Get parts
+        call: national-highway-traffic-safety-administration-equipment.get
+        with:
+          type: rest.type
+          fromDate: rest.fromDate
+          toDate: rest.toDate
+          manufacturer: rest.manufacturer
+          page: rest.page
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: national-highway-traffic-safety-administration-equipment-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for NHTSA vPIC Vehicle API — Equipment. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: get-canadian-vehicle-specifications
+      description: Get Canadian vehicle specifications
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: national-highway-traffic-safety-administration-equipment.get
+      with:
+        year: tools.year
+        make: tools.make
+        model: tools.model
+        units: tools.units
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-equipment-plant-codes
+      description: Get equipment plant codes
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: national-highway-traffic-safety-administration-equipment.get
+      with:
+        year: tools.year
+        equipmentType: tools.equipmentType
+        reportType: tools.reportType
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-parts
+      description: Get parts
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: national-highway-traffic-safety-administration-equipment.get
+      with:
+        type: tools.type
+        fromDate: tools.fromDate
+        toDate: tools.toDate
+        manufacturer: tools.manufacturer
+        page: tools.page
+      outputParameters:
+      - type: object
+        mapping: $.
