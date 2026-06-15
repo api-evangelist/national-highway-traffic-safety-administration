@@ -1,0 +1,727 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "NHTSA vPIC Vehicle API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "VIN Decoding",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Decode a VIN",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://vpic.nhtsa.dot.gov/api/vehicles/DecodeVin/:vin",
+            "params": [
+              {
+                "name": "vin",
+                "value": "",
+                "type": "path",
+                "description": "Vehicle Identification Number (asterisks may be used for unknown digits)."
+              },
+              {
+                "name": "modelyear",
+                "value": "",
+                "type": "query",
+                "description": "Optional vehicle model year for improved decode accuracy."
+              },
+              {
+                "name": "format",
+                "value": "",
+                "type": "query",
+                "description": "Response format."
+              }
+            ]
+          },
+          "docs": "Decodes a Vehicle Identification Number into its constituent parts."
+        },
+        {
+          "info": {
+            "name": "Decode a VIN (flat values)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://vpic.nhtsa.dot.gov/api/vehicles/DecodeVinValues/:vin",
+            "params": [
+              {
+                "name": "vin",
+                "value": "",
+                "type": "path",
+                "description": "Vehicle Identification Number (asterisks may be used for unknown digits)."
+              },
+              {
+                "name": "modelyear",
+                "value": "",
+                "type": "query",
+                "description": "Optional vehicle model year for improved decode accuracy."
+              },
+              {
+                "name": "format",
+                "value": "",
+                "type": "query",
+                "description": "Response format."
+              }
+            ]
+          },
+          "docs": "Decodes a VIN and returns the results as a single flat object of values."
+        },
+        {
+          "info": {
+            "name": "Decode a VIN with extended details",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://vpic.nhtsa.dot.gov/api/vehicles/DecodeVinExtended/:vin",
+            "params": [
+              {
+                "name": "vin",
+                "value": "",
+                "type": "path",
+                "description": "Vehicle Identification Number (asterisks may be used for unknown digits)."
+              },
+              {
+                "name": "modelyear",
+                "value": "",
+                "type": "query",
+                "description": "Optional vehicle model year for improved decode accuracy."
+              },
+              {
+                "name": "format",
+                "value": "",
+                "type": "query",
+                "description": "Response format."
+              }
+            ]
+          },
+          "docs": "Decode a VIN with extended details"
+        },
+        {
+          "info": {
+            "name": "Decode a VIN with extended details (flat values)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://vpic.nhtsa.dot.gov/api/vehicles/DecodeVinValuesExtended/:vin",
+            "params": [
+              {
+                "name": "vin",
+                "value": "",
+                "type": "path",
+                "description": "Vehicle Identification Number (asterisks may be used for unknown digits)."
+              },
+              {
+                "name": "modelyear",
+                "value": "",
+                "type": "query",
+                "description": "Optional vehicle model year for improved decode accuracy."
+              },
+              {
+                "name": "format",
+                "value": "",
+                "type": "query",
+                "description": "Response format."
+              }
+            ]
+          },
+          "docs": "Decode a VIN with extended details (flat values)"
+        },
+        {
+          "info": {
+            "name": "Batch decode multiple VINs",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://vpic.nhtsa.dot.gov/api/vehicles/DecodeVINValuesBatch/",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "DATA",
+                  "value": ""
+                },
+                {
+                  "name": "format",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "Decodes a batch of up to 50 VIN/year pairs in a single request."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Manufacturers",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Decode a World Manufacturer Identifier",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://vpic.nhtsa.dot.gov/api/vehicles/DecodeWMI/:wmi",
+            "params": [
+              {
+                "name": "wmi",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "format",
+                "value": "",
+                "type": "query",
+                "description": "Response format."
+              }
+            ]
+          },
+          "docs": "Decode a World Manufacturer Identifier"
+        },
+        {
+          "info": {
+            "name": "Get WMIs for a manufacturer",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://vpic.nhtsa.dot.gov/api/vehicles/GetWMIsForManufacturer/:manufacturer",
+            "params": [
+              {
+                "name": "manufacturer",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "vehicleType",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "format",
+                "value": "",
+                "type": "query",
+                "description": "Response format."
+              }
+            ]
+          },
+          "docs": "Get WMIs for a manufacturer"
+        },
+        {
+          "info": {
+            "name": "Get all manufacturers",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://vpic.nhtsa.dot.gov/api/vehicles/GetAllManufacturers",
+            "params": [
+              {
+                "name": "ManufacturerType",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "format",
+                "value": "",
+                "type": "query",
+                "description": "Response format."
+              }
+            ]
+          },
+          "docs": "Get all manufacturers"
+        },
+        {
+          "info": {
+            "name": "Get manufacturer details",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://vpic.nhtsa.dot.gov/api/vehicles/GetManufacturerDetails/:manufacturer",
+            "params": [
+              {
+                "name": "manufacturer",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "format",
+                "value": "",
+                "type": "query",
+                "description": "Response format."
+              }
+            ]
+          },
+          "docs": "Get manufacturer details"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Makes and Models",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get all makes",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://vpic.nhtsa.dot.gov/api/vehicles/GetAllMakes",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "query",
+                "description": "Response format."
+              }
+            ]
+          },
+          "docs": "Get all makes"
+        },
+        {
+          "info": {
+            "name": "Get makes for a manufacturer",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://vpic.nhtsa.dot.gov/api/vehicles/GetMakeForManufacturer/:manufacturer",
+            "params": [
+              {
+                "name": "manufacturer",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "format",
+                "value": "",
+                "type": "query",
+                "description": "Response format."
+              }
+            ]
+          },
+          "docs": "Get makes for a manufacturer"
+        },
+        {
+          "info": {
+            "name": "Get makes for a manufacturer and year",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://vpic.nhtsa.dot.gov/api/vehicles/GetMakesForManufacturerAndYear/:manufacturer",
+            "params": [
+              {
+                "name": "manufacturer",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "year",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "format",
+                "value": "",
+                "type": "query",
+                "description": "Response format."
+              }
+            ]
+          },
+          "docs": "Get makes for a manufacturer and year"
+        },
+        {
+          "info": {
+            "name": "Get makes for a vehicle type",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://vpic.nhtsa.dot.gov/api/vehicles/GetMakesForVehicleType/:vehicleType",
+            "params": [
+              {
+                "name": "vehicleType",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "format",
+                "value": "",
+                "type": "query",
+                "description": "Response format."
+              }
+            ]
+          },
+          "docs": "Get makes for a vehicle type"
+        },
+        {
+          "info": {
+            "name": "Get models for a make",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://vpic.nhtsa.dot.gov/api/vehicles/GetModelsForMake/:makeName",
+            "params": [
+              {
+                "name": "makeName",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "format",
+                "value": "",
+                "type": "query",
+                "description": "Response format."
+              }
+            ]
+          },
+          "docs": "Get models for a make"
+        },
+        {
+          "info": {
+            "name": "Get models for a make ID",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://vpic.nhtsa.dot.gov/api/vehicles/GetModelsForMakeId/:makeId",
+            "params": [
+              {
+                "name": "makeId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "format",
+                "value": "",
+                "type": "query",
+                "description": "Response format."
+              }
+            ]
+          },
+          "docs": "Get models for a make ID"
+        },
+        {
+          "info": {
+            "name": "Get models for a make and model year",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://vpic.nhtsa.dot.gov/api/vehicles/GetModelsForMakeYear/make/:make/modelyear/:modelyear",
+            "params": [
+              {
+                "name": "make",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "modelyear",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "format",
+                "value": "",
+                "type": "query",
+                "description": "Response format."
+              }
+            ]
+          },
+          "docs": "Get models for a make and model year"
+        },
+        {
+          "info": {
+            "name": "Get models for a make ID and model year",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://vpic.nhtsa.dot.gov/api/vehicles/GetModelsForMakeIdYear/makeId/:makeId/modelyear/:modelyear",
+            "params": [
+              {
+                "name": "makeId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "modelyear",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "format",
+                "value": "",
+                "type": "query",
+                "description": "Response format."
+              }
+            ]
+          },
+          "docs": "Get models for a make ID and model year"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Vehicle Types",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get vehicle types for a make",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://vpic.nhtsa.dot.gov/api/vehicles/GetVehicleTypesForMake/:makeName",
+            "params": [
+              {
+                "name": "makeName",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "format",
+                "value": "",
+                "type": "query",
+                "description": "Response format."
+              }
+            ]
+          },
+          "docs": "Get vehicle types for a make"
+        },
+        {
+          "info": {
+            "name": "Get vehicle types for a make ID",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://vpic.nhtsa.dot.gov/api/vehicles/GetVehicleTypesForMakeId/:makeId",
+            "params": [
+              {
+                "name": "makeId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "format",
+                "value": "",
+                "type": "query",
+                "description": "Response format."
+              }
+            ]
+          },
+          "docs": "Get vehicle types for a make ID"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Reference",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get list of vehicle variables",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://vpic.nhtsa.dot.gov/api/vehicles/GetVehicleVariableList",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "query",
+                "description": "Response format."
+              }
+            ]
+          },
+          "docs": "Get list of vehicle variables"
+        },
+        {
+          "info": {
+            "name": "Get values for a vehicle variable",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://vpic.nhtsa.dot.gov/api/vehicles/GetVehicleVariableValuesList/:variable",
+            "params": [
+              {
+                "name": "variable",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "format",
+                "value": "",
+                "type": "query",
+                "description": "Response format."
+              }
+            ]
+          },
+          "docs": "Get values for a vehicle variable"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Equipment",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get equipment plant codes",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://vpic.nhtsa.dot.gov/api/vehicles/GetEquipmentPlantCodes",
+            "params": [
+              {
+                "name": "year",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "equipmentType",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "reportType",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "format",
+                "value": "",
+                "type": "query",
+                "description": "Response format."
+              }
+            ]
+          },
+          "docs": "Get equipment plant codes"
+        },
+        {
+          "info": {
+            "name": "Get parts",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://vpic.nhtsa.dot.gov/api/vehicles/GetParts",
+            "params": [
+              {
+                "name": "type",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "fromDate",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "toDate",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "manufacturer",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "format",
+                "value": "",
+                "type": "query",
+                "description": "Response format."
+              }
+            ]
+          },
+          "docs": "Get parts"
+        },
+        {
+          "info": {
+            "name": "Get Canadian vehicle specifications",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://vpic.nhtsa.dot.gov/api/vehicles/GetCanadianVehicleSpecifications/",
+            "params": [
+              {
+                "name": "year",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "make",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "model",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "units",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "format",
+                "value": "",
+                "type": "query",
+                "description": "Response format."
+              }
+            ]
+          },
+          "docs": "Get Canadian vehicle specifications"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

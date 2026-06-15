@@ -1,0 +1,2274 @@
+{
+  "item": [
+    {
+      "id": "d6fa722f-19cb-4b99-a86f-5e0f2edc42c8",
+      "name": "VIN Decoding",
+      "description": {
+        "content": "Endpoints for decoding Vehicle Identification Numbers",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "47f02c0f-aa85-4db8-b1c8-a4c3a9c066e8",
+          "name": "Decode a VIN",
+          "request": {
+            "name": "Decode a VIN",
+            "description": {
+              "content": "Decodes a Vehicle Identification Number into its constituent parts.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "DecodeVin",
+                ":vin"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "modelyear",
+                  "value": "<integer>",
+                  "description": "Optional vehicle model year for improved decode accuracy."
+                },
+                {
+                  "disabled": false,
+                  "key": "format",
+                  "value": "xml",
+                  "description": "Response format."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "vin",
+                  "description": "(Required) Vehicle Identification Number (asterisks may be used for unknown digits)."
+                }
+              ]
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "cf8fa4e5-759c-4b35-ade5-cdff3652b2b1",
+              "name": "Successful VIN decode",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "DecodeVin",
+                    ":vin"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "modelyear",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "format",
+                      "value": "xml"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "vin",
+                      "description": "(Required) Vehicle Identification Number (asterisks may be used for unknown digits)."
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a056b5f5-60e3-4d5e-ae24-935fd5e18e4d",
+          "name": "Decode a VIN (flat values)",
+          "request": {
+            "name": "Decode a VIN (flat values)",
+            "description": {
+              "content": "Decodes a VIN and returns the results as a single flat object of values.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "DecodeVinValues",
+                ":vin"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "modelyear",
+                  "value": "<integer>",
+                  "description": "Optional vehicle model year for improved decode accuracy."
+                },
+                {
+                  "disabled": false,
+                  "key": "format",
+                  "value": "xml",
+                  "description": "Response format."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "vin",
+                  "description": "(Required) Vehicle Identification Number (asterisks may be used for unknown digits)."
+                }
+              ]
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "19947df5-d0ae-420e-a29f-2cd0aabb7183",
+              "name": "Successful VIN decode (flat values)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "DecodeVinValues",
+                    ":vin"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "modelyear",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "format",
+                      "value": "xml"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "vin",
+                      "description": "(Required) Vehicle Identification Number (asterisks may be used for unknown digits)."
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1212f278-0513-4a54-b294-070d481bfeed",
+          "name": "Decode a VIN with extended details",
+          "request": {
+            "name": "Decode a VIN with extended details",
+            "description": {},
+            "url": {
+              "path": [
+                "DecodeVinExtended",
+                ":vin"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "modelyear",
+                  "value": "<integer>",
+                  "description": "Optional vehicle model year for improved decode accuracy."
+                },
+                {
+                  "disabled": false,
+                  "key": "format",
+                  "value": "xml",
+                  "description": "Response format."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "vin",
+                  "description": "(Required) Vehicle Identification Number (asterisks may be used for unknown digits)."
+                }
+              ]
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "aceaaf15-49fc-4a46-9d8c-fca0a7727747",
+              "name": "Successful extended VIN decode",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "DecodeVinExtended",
+                    ":vin"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "modelyear",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "format",
+                      "value": "xml"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "vin",
+                      "description": "(Required) Vehicle Identification Number (asterisks may be used for unknown digits)."
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "66faea47-d76d-4ff2-ba41-7e972548248e",
+          "name": "Decode a VIN with extended details (flat values)",
+          "request": {
+            "name": "Decode a VIN with extended details (flat values)",
+            "description": {},
+            "url": {
+              "path": [
+                "DecodeVinValuesExtended",
+                ":vin"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "modelyear",
+                  "value": "<integer>",
+                  "description": "Optional vehicle model year for improved decode accuracy."
+                },
+                {
+                  "disabled": false,
+                  "key": "format",
+                  "value": "xml",
+                  "description": "Response format."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "vin",
+                  "description": "(Required) Vehicle Identification Number (asterisks may be used for unknown digits)."
+                }
+              ]
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "9569ba0f-e6d5-4b34-87e4-658e892f400b",
+              "name": "Successful extended VIN decode (flat values)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "DecodeVinValuesExtended",
+                    ":vin"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "modelyear",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "format",
+                      "value": "xml"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "vin",
+                      "description": "(Required) Vehicle Identification Number (asterisks may be used for unknown digits)."
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ec84c81c-832a-43d2-955d-f626058b0899",
+          "name": "Batch decode multiple VINs",
+          "request": {
+            "name": "Batch decode multiple VINs",
+            "description": {
+              "content": "Decodes a batch of up to 50 VIN/year pairs in a single request.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "DecodeVINValuesBatch",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "DATA",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "format",
+                  "value": "<string>"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "7160d003-5175-4986-8d00-678833f46242",
+              "name": "Batch decode results",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "DecodeVINValuesBatch",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "key": "DATA",
+                      "value": "5UXWX7C5*BA,2011;5YJSA3DS*EF"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "f8904322-3b69-4168-91a4-e36f4452142c",
+      "name": "Manufacturers",
+      "description": {
+        "content": "Endpoints for manufacturer and World Manufacturer Identifier (WMI) data",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "c08197ee-7ff6-4d05-9793-f764d3230a17",
+          "name": "Decode a World Manufacturer Identifier",
+          "request": {
+            "name": "Decode a World Manufacturer Identifier",
+            "description": {},
+            "url": {
+              "path": [
+                "DecodeWMI",
+                ":wmi"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "format",
+                  "value": "xml",
+                  "description": "Response format."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "wmi",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "b8ac9316-e45b-46a6-9cd1-6bec5974f8ea",
+              "name": "Decoded WMI",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "DecodeWMI",
+                    ":wmi"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "format",
+                      "value": "xml"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "wmi",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ef7c8b9f-5fd8-4fba-aca2-8f6493408037",
+          "name": "Get WMIs for a manufacturer",
+          "request": {
+            "name": "Get WMIs for a manufacturer",
+            "description": {},
+            "url": {
+              "path": [
+                "GetWMIsForManufacturer",
+                ":manufacturer"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "vehicleType",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "format",
+                  "value": "xml",
+                  "description": "Response format."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "manufacturer",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "f52381fe-0c38-42c0-8ee5-c1015f4ea7a6",
+              "name": "WMIs for the manufacturer",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "GetWMIsForManufacturer",
+                    ":manufacturer"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "vehicleType",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "format",
+                      "value": "xml"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "manufacturer",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "39a76078-a276-4dde-a43a-afedfcebb0f8",
+          "name": "Get all manufacturers",
+          "request": {
+            "name": "Get all manufacturers",
+            "description": {},
+            "url": {
+              "path": [
+                "GetAllManufacturers"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "ManufacturerType",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "format",
+                  "value": "xml",
+                  "description": "Response format."
+                }
+              ],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "07c0e4cc-5dad-462b-b2c6-22ae5a2d9b1d",
+              "name": "All manufacturers",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "GetAllManufacturers"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "ManufacturerType",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "format",
+                      "value": "xml"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "57cbf665-74a0-4495-92f8-2c04f4bf4412",
+          "name": "Get manufacturer details",
+          "request": {
+            "name": "Get manufacturer details",
+            "description": {},
+            "url": {
+              "path": [
+                "GetManufacturerDetails",
+                ":manufacturer"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "format",
+                  "value": "xml",
+                  "description": "Response format."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "manufacturer",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "9731f6f1-e9ba-441b-92b8-96931506aaf8",
+              "name": "Manufacturer details",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "GetManufacturerDetails",
+                    ":manufacturer"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "format",
+                      "value": "xml"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "manufacturer",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "b158ec26-b200-4d53-acd9-f82b45d3cf0f",
+      "name": "Makes and Models",
+      "description": {
+        "content": "Endpoints for vehicle make and model information",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "112e0968-1f61-4d08-90d3-2be54a2014e4",
+          "name": "Get all makes",
+          "request": {
+            "name": "Get all makes",
+            "description": {},
+            "url": {
+              "path": [
+                "GetAllMakes"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "format",
+                  "value": "xml",
+                  "description": "Response format."
+                }
+              ],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "1e9a73c5-1176-45e7-8896-e9c4d50e9500",
+              "name": "All makes",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "GetAllMakes"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "format",
+                      "value": "xml"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "590edcdd-ccd3-4aac-b4b4-1fbd4f3dbbf9",
+          "name": "Get makes for a manufacturer",
+          "request": {
+            "name": "Get makes for a manufacturer",
+            "description": {},
+            "url": {
+              "path": [
+                "GetMakeForManufacturer",
+                ":manufacturer"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "format",
+                  "value": "xml",
+                  "description": "Response format."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "manufacturer",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "8a7ed346-b8d8-4c15-a486-36c72c52deaa",
+              "name": "Makes for the manufacturer",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "GetMakeForManufacturer",
+                    ":manufacturer"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "format",
+                      "value": "xml"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "manufacturer",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "218ae349-b566-41c9-8d1e-154663b70a1e",
+          "name": "Get makes for a manufacturer and year",
+          "request": {
+            "name": "Get makes for a manufacturer and year",
+            "description": {},
+            "url": {
+              "path": [
+                "GetMakesForManufacturerAndYear",
+                ":manufacturer"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "year",
+                  "value": "<integer>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "format",
+                  "value": "xml",
+                  "description": "Response format."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "manufacturer",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "b9cca734-326d-4805-a24a-5e82edc29085",
+              "name": "Makes for the manufacturer and year",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "GetMakesForManufacturerAndYear",
+                    ":manufacturer"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "year",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "format",
+                      "value": "xml"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "manufacturer",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f4b87121-4a7b-4e8f-aae1-aeb3902fa461",
+          "name": "Get makes for a vehicle type",
+          "request": {
+            "name": "Get makes for a vehicle type",
+            "description": {},
+            "url": {
+              "path": [
+                "GetMakesForVehicleType",
+                ":vehicleType"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "format",
+                  "value": "xml",
+                  "description": "Response format."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "vehicleType",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "3ae9194d-d752-412a-a09e-3b70d19f90dd",
+              "name": "Makes for the vehicle type",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "GetMakesForVehicleType",
+                    ":vehicleType"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "format",
+                      "value": "xml"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "vehicleType",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "69cc55fd-312d-44b6-b67d-2d36dbc66709",
+          "name": "Get models for a make",
+          "request": {
+            "name": "Get models for a make",
+            "description": {},
+            "url": {
+              "path": [
+                "GetModelsForMake",
+                ":makeName"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "format",
+                  "value": "xml",
+                  "description": "Response format."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "makeName",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "cf96231c-1ab2-477c-9b67-1987ad41872b",
+              "name": "Models for the make",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "GetModelsForMake",
+                    ":makeName"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "format",
+                      "value": "xml"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "makeName",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1e7a0300-9776-402e-90c4-9bdb37d788c9",
+          "name": "Get models for a make ID",
+          "request": {
+            "name": "Get models for a make ID",
+            "description": {},
+            "url": {
+              "path": [
+                "GetModelsForMakeId",
+                ":makeId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "format",
+                  "value": "xml",
+                  "description": "Response format."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "makeId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "ac7f26d4-0eb6-4f4a-ad51-4fda05a421c8",
+              "name": "Models for the make ID",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "GetModelsForMakeId",
+                    ":makeId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "format",
+                      "value": "xml"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "makeId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ead44e67-fe27-4380-9ac6-07a7912fad74",
+          "name": "Get models for a make and model year",
+          "request": {
+            "name": "Get models for a make and model year",
+            "description": {},
+            "url": {
+              "path": [
+                "GetModelsForMakeYear",
+                "make",
+                ":make",
+                "modelyear",
+                ":modelyear"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "format",
+                  "value": "xml",
+                  "description": "Response format."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "make",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "modelyear",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "89f77af5-d8c4-4f8e-b4ed-4a169a5cf4b5",
+              "name": "Models for make and year",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "GetModelsForMakeYear",
+                    "make",
+                    ":make",
+                    "modelyear",
+                    ":modelyear"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "format",
+                      "value": "xml"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "make",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "modelyear",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "572721e2-61fe-427e-a756-9fe9a4eab002",
+          "name": "Get models for a make ID and model year",
+          "request": {
+            "name": "Get models for a make ID and model year",
+            "description": {},
+            "url": {
+              "path": [
+                "GetModelsForMakeIdYear",
+                "makeId",
+                ":makeId",
+                "modelyear",
+                ":modelyear"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "format",
+                  "value": "xml",
+                  "description": "Response format."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "makeId",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "modelyear",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "f8f5e1af-a06b-44c4-9e56-cf0c15dec6d7",
+              "name": "Models for make ID and year",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "GetModelsForMakeIdYear",
+                    "makeId",
+                    ":makeId",
+                    "modelyear",
+                    ":modelyear"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "format",
+                      "value": "xml"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "makeId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "modelyear",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "21438090-20c2-4e7f-90a4-8497ef1c86f3",
+      "name": "Vehicle Types",
+      "description": {
+        "content": "Endpoints related to vehicle types",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "8feef376-6134-4973-8507-82bc29926db5",
+          "name": "Get vehicle types for a make",
+          "request": {
+            "name": "Get vehicle types for a make",
+            "description": {},
+            "url": {
+              "path": [
+                "GetVehicleTypesForMake",
+                ":makeName"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "format",
+                  "value": "xml",
+                  "description": "Response format."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "makeName",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "b14b785e-d935-4f9d-911b-b1df1f8841c5",
+              "name": "Vehicle types for the make",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "GetVehicleTypesForMake",
+                    ":makeName"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "format",
+                      "value": "xml"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "makeName",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "68cb5521-fbd7-4b90-bf63-239c53e21ba9",
+          "name": "Get vehicle types for a make ID",
+          "request": {
+            "name": "Get vehicle types for a make ID",
+            "description": {},
+            "url": {
+              "path": [
+                "GetVehicleTypesForMakeId",
+                ":makeId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "format",
+                  "value": "xml",
+                  "description": "Response format."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "makeId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "f84625a3-5414-433d-8c21-068bd2410a6d",
+              "name": "Vehicle types for the make ID",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "GetVehicleTypesForMakeId",
+                    ":makeId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "format",
+                      "value": "xml"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "makeId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "206cd538-f89b-4ee4-9058-ea3677a62890",
+      "name": "Reference",
+      "description": {
+        "content": "Reference variables and value lists",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "b08010bd-d3d3-49aa-b13e-7f9b2325f981",
+          "name": "Get list of vehicle variables",
+          "request": {
+            "name": "Get list of vehicle variables",
+            "description": {},
+            "url": {
+              "path": [
+                "GetVehicleVariableList"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "format",
+                  "value": "xml",
+                  "description": "Response format."
+                }
+              ],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "4cd2c58d-3dd9-4a8a-a936-b5207a97e9bf",
+              "name": "Vehicle variable list",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "GetVehicleVariableList"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "format",
+                      "value": "xml"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "67ca1439-0c2c-4374-8b78-15af021f2da9",
+          "name": "Get values for a vehicle variable",
+          "request": {
+            "name": "Get values for a vehicle variable",
+            "description": {},
+            "url": {
+              "path": [
+                "GetVehicleVariableValuesList",
+                ":variable"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "format",
+                  "value": "xml",
+                  "description": "Response format."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "variable",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "e3947162-1e85-427c-8f89-1366a0facfeb",
+              "name": "Variable values list",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "GetVehicleVariableValuesList",
+                    ":variable"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "format",
+                      "value": "xml"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "variable",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "dd68a8e6-9b8e-4086-b69a-db127c5edddd",
+      "name": "Equipment",
+      "description": {
+        "content": "Equipment, parts, and Canadian vehicle specifications",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "c0a900ce-fd96-4e6c-bf29-526036988365",
+          "name": "Get equipment plant codes",
+          "request": {
+            "name": "Get equipment plant codes",
+            "description": {},
+            "url": {
+              "path": [
+                "GetEquipmentPlantCodes"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "year",
+                  "value": "<integer>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "equipmentType",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "reportType",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "format",
+                  "value": "xml",
+                  "description": "Response format."
+                }
+              ],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "7356a1fb-a00f-4e0f-b6dd-bb594778a4a5",
+              "name": "Equipment plant codes",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "GetEquipmentPlantCodes"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "year",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "equipmentType",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "reportType",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "format",
+                      "value": "xml"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7cdf4202-3ef7-4116-840e-20c5e8e5c354",
+          "name": "Get parts",
+          "request": {
+            "name": "Get parts",
+            "description": {},
+            "url": {
+              "path": [
+                "GetParts"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "type",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "fromDate",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "toDate",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "manufacturer",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "format",
+                  "value": "xml",
+                  "description": "Response format."
+                }
+              ],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "94b183a1-8b24-4494-bed1-014310f20a6f",
+              "name": "Parts results",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "GetParts"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "type",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "fromDate",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "toDate",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "manufacturer",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "format",
+                      "value": "xml"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e08c7164-3a26-47fc-a324-960784ed5988",
+          "name": "Get Canadian vehicle specifications",
+          "request": {
+            "name": "Get Canadian vehicle specifications",
+            "description": {},
+            "url": {
+              "path": [
+                "GetCanadianVehicleSpecifications",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "year",
+                  "value": "<integer>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "make",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "model",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "units",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "format",
+                  "value": "xml",
+                  "description": "Response format."
+                }
+              ],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "65942cbc-7143-4e15-9002-c2cbb97a96a8",
+              "name": "Canadian vehicle specifications",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "GetCanadianVehicleSpecifications",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "year",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "make",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "model",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "units",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "format",
+                      "value": "xml"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://vpic.nhtsa.dot.gov/api/vehicles",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "d5323562-8d51-41d6-bbe8-2eddef5a15f0",
+    "name": "NHTSA vPIC Vehicle API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The NHTSA Product Information Catalog Vehicle Listing (vPIC) API provides endpoints to gather information on vehicles and their specifications, including decoding Vehicle Identification Numbers (VINs), accessing manufacturer details, and retrieving make, model, and equipment data. The vPIC dataset is populated using information submitted by motor vehicle manufacturers through the Part 565 submittals.\n\nContact Support:\n Name: NHTSA",
+      "type": "text/plain"
+    }
+  }
+}

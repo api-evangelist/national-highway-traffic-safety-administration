@@ -1,55 +1,47 @@
 aid: national-highway-traffic-safety-administration
 name: National Highway Traffic Safety Administration
-description: The National Highway Traffic Safety Administration (NHTSA) provides APIs for vehicle safety information including
-  vehicle recall data and the Product Information Catalog Vehicle Listing (vPIC) for decoding Vehicle Identification Numbers
-  (VINs) and accessing vehicle specifications submitted by manufacturers.
+description: >-
+  The National Highway Traffic Safety Administration (NHTSA) provides APIs for vehicle safety information including
+  vehicle recall data and the Product Information Catalog Vehicle Listing (vPIC) for decoding Vehicle Identification
+  Numbers (VINs) and accessing vehicle specifications submitted by manufacturers.
 type: Index
 image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
-url: https://raw.githubusercontent.com/api-evangelist/national-highway-traffic-safety-administration/refs/heads/main/apis.yml
+url: >-
+  https://raw.githubusercontent.com/api-evangelist/national-highway-traffic-safety-administration/refs/heads/main/apis.yml
 created: '2024-03-30'
 modified: '2026-05-19'
 specificationVersion: '0.19'
 tags:
-- Federal Government
-- Safety
-- Transportation
-- Vehicles
-apis:
-- aid: national-highway-traffic-safety-administration:vehicle-api
-  name: NHTSA vPIC Vehicle API
-  description: The NHTSA Product Information Catalog Vehicle Listing (vPIC) API provides different ways to gather information
-    on vehicles and their specifications, including decoding VINs, retrieving manufacturer details, and accessing makes, models,
-    equipment, and reference data.
-  humanURL: https://vpic.nhtsa.dot.gov/api/
-  baseURL: https://vpic.nhtsa.dot.gov/api/vehicles
-  tags:
+  - Federal Government
   - Safety
+  - Transportation
   - Vehicles
-  - VIN
-  properties:
-  - type: Documentation
-    url: https://vpic.nhtsa.dot.gov/api/
-  - type: OpenAPI
-    url: https://raw.githubusercontent.com/api-evangelist/national-highway-traffic-safety-administration/refs/heads/main/openapi/national-highway-traffic-safety-administration-openapi.yml
-  - type: NaftikoCapability
-    url: capabilities/national-highway-traffic-safety-administration-equipment.yaml
-  - type: NaftikoCapability
-    url: capabilities/national-highway-traffic-safety-administration-makes-and-models.yaml
-  - type: NaftikoCapability
-    url: capabilities/national-highway-traffic-safety-administration-manufacturers.yaml
-  - type: NaftikoCapability
-    url: capabilities/national-highway-traffic-safety-administration-reference.yaml
-  - type: NaftikoCapability
-    url: capabilities/national-highway-traffic-safety-administration-vin-decoding.yaml
-  - type: NaftikoCapability
-    url: capabilities/national-highway-traffic-safety-administration-vehicle-types.yaml
+apis:
+  - aid: national-highway-traffic-safety-administration:vehicle-api
+    name: NHTSA vPIC Vehicle API
+    description: >-
+      The NHTSA Product Information Catalog Vehicle Listing (vPIC) API provides different ways to gather information on
+      vehicles and their specifications, including decoding VINs, retrieving manufacturer details, and accessing makes,
+      models, equipment, and reference data.
+    humanURL: https://vpic.nhtsa.dot.gov/api/
+    baseURL: https://vpic.nhtsa.dot.gov/api/vehicles
+    tags:
+      - Safety
+      - Vehicles
+      - VIN
+    properties:
+      - type: Documentation
+        url: https://vpic.nhtsa.dot.gov/api/
+      - type: OpenAPI
+        url: >-
+          https://raw.githubusercontent.com/api-evangelist/national-highway-traffic-safety-administration/refs/heads/main/openapi/national-highway-traffic-safety-administration-openapi.yml
 common:
-- type: LinkedIn
-  url: https://www.linkedin.com/company/national-highway-traffic-safety-administration-nhtsa
-- type: Website
-  url: https://www.nhtsa.gov/
-- type: Portal
-  url: https://vpic.nhtsa.dot.gov/api/
+  - type: LinkedIn
+    url: https://www.linkedin.com/company/national-highway-traffic-safety-administration-nhtsa
+  - type: Website
+    url: https://www.nhtsa.gov/
+  - type: Portal
+    url: https://vpic.nhtsa.dot.gov/api/
 maintainers:
-- FN: Kin Lane
-  email: kin@apievangelist.com
+  - FN: Kin Lane
+    email: kin@apievangelist.com
