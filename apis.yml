@@ -5,7 +5,7 @@ description: >-
   vehicle recall data and the Product Information Catalog Vehicle Listing (vPIC) for decoding Vehicle Identification
   Numbers (VINs) and accessing vehicle specifications submitted by manufacturers.
 type: Index
-image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
 url: >-
   https://raw.githubusercontent.com/api-evangelist/national-highway-traffic-safety-administration/refs/heads/main/apis.yml
 created: '2024-03-30'
