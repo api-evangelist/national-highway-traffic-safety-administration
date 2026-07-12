@@ -36,6 +36,8 @@ apis:
         url: >-
           https://raw.githubusercontent.com/api-evangelist/national-highway-traffic-safety-administration/refs/heads/main/openapi/national-highway-traffic-safety-administration-openapi.yml
 common:
+  - type: DomainSecurity
+    url: security/national-highway-traffic-safety-administration-domain-security.yml
   - type: LinkedIn
     url: https://www.linkedin.com/company/national-highway-traffic-safety-administration-nhtsa
   - type: Website
