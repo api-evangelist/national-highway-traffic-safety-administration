@@ -1,0 +1,161 @@
+openapi: 3.0.3
+info:
+  title: NHTSA vPIC Vehicle Equipment Makes and Models API
+  description: The NHTSA Product Information Catalog Vehicle Listing (vPIC) API provides endpoints to gather information on vehicles and their specifications, including decoding Vehicle Identification Numbers (VINs), accessing manufacturer details, and retrieving make, model, and equipment data. The vPIC dataset is populated using information submitted by motor vehicle manufacturers through the Part 565 submittals.
+  version: 1.0.0
+  contact:
+    name: NHTSA
+    url: https://vpic.nhtsa.dot.gov/api/
+  license:
+    name: Public Domain
+    url: https://www.usa.gov/government-works
+servers:
+- url: https://vpic.nhtsa.dot.gov/api/vehicles
+  description: NHTSA vPIC API production server
+tags:
+- name: Makes and Models
+  description: Endpoints for vehicle make and model information
+paths:
+  /GetAllMakes:
+    get:
+      tags:
+      - Makes and Models
+      summary: Get all makes
+      parameters:
+      - $ref: '#/components/parameters/Format'
+      responses:
+        '200':
+          description: All makes
+  /GetMakeForManufacturer/{manufacturer}:
+    get:
+      tags:
+      - Makes and Models
+      summary: Get makes for a manufacturer
+      parameters:
+      - name: manufacturer
+        in: path
+        required: true
+        schema:
+          type: string
+      - $ref: '#/components/parameters/Format'
+      responses:
+        '200':
+          description: Makes for the manufacturer
+  /GetMakesForManufacturerAndYear/{manufacturer}:
+    get:
+      tags:
+      - Makes and Models
+      summary: Get makes for a manufacturer and year
+      parameters:
+      - name: manufacturer
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: year
+        in: query
+        required: true
+        schema:
+          type: integer
+      - $ref: '#/components/parameters/Format'
+      responses:
+        '200':
+          description: Makes for the manufacturer and year
+  /GetMakesForVehicleType/{vehicleType}:
+    get:
+      tags:
+      - Makes and Models
+      summary: Get makes for a vehicle type
+      parameters:
+      - name: vehicleType
+        in: path
+        required: true
+        schema:
+          type: string
+      - $ref: '#/components/parameters/Format'
+      responses:
+        '200':
+          description: Makes for the vehicle type
+  /GetModelsForMake/{makeName}:
+    get:
+      tags:
+      - Makes and Models
+      summary: Get models for a make
+      parameters:
+      - name: makeName
+        in: path
+        required: true
+        schema:
+          type: string
+      - $ref: '#/components/parameters/Format'
+      responses:
+        '200':
+          description: Models for the make
+  /GetModelsForMakeId/{makeId}:
+    get:
+      tags:
+      - Makes and Models
+      summary: Get models for a make ID
+      parameters:
+      - name: makeId
+        in: path
+        required: true
+        schema:
+          type: integer
+      - $ref: '#/components/parameters/Format'
+      responses:
+        '200':
+          description: Models for the make ID
+  /GetModelsForMakeYear/make/{make}/modelyear/{modelyear}:
+    get:
+      tags:
+      - Makes and Models
+      summary: Get models for a make and model year
+      parameters:
+      - name: make
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: modelyear
+        in: path
+        required: true
+        schema:
+          type: integer
+      - $ref: '#/components/parameters/Format'
+      responses:
+        '200':
+          description: Models for make and year
+  /GetModelsForMakeIdYear/makeId/{makeId}/modelyear/{modelyear}:
+    get:
+      tags:
+      - Makes and Models
+      summary: Get models for a make ID and model year
+      parameters:
+      - name: makeId
+        in: path
+        required: true
+        schema:
+          type: integer
+      - name: modelyear
+        in: path
+        required: true
+        schema:
+          type: integer
+      - $ref: '#/components/parameters/Format'
+      responses:
+        '200':
+          description: Models for make ID and year
+components:
+  parameters:
+    Format:
+      name: format
+      in: query
+      description: Response format.
+      schema:
+        type: string
+        enum:
+        - json
+        - xml
+        - csv
+        default: xml

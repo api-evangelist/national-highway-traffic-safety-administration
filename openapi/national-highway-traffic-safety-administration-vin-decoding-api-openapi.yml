@@ -1,0 +1,119 @@
+openapi: 3.0.3
+info:
+  title: NHTSA vPIC Vehicle Equipment VIN Decoding API
+  description: The NHTSA Product Information Catalog Vehicle Listing (vPIC) API provides endpoints to gather information on vehicles and their specifications, including decoding Vehicle Identification Numbers (VINs), accessing manufacturer details, and retrieving make, model, and equipment data. The vPIC dataset is populated using information submitted by motor vehicle manufacturers through the Part 565 submittals.
+  version: 1.0.0
+  contact:
+    name: NHTSA
+    url: https://vpic.nhtsa.dot.gov/api/
+  license:
+    name: Public Domain
+    url: https://www.usa.gov/government-works
+servers:
+- url: https://vpic.nhtsa.dot.gov/api/vehicles
+  description: NHTSA vPIC API production server
+tags:
+- name: VIN Decoding
+  description: Endpoints for decoding Vehicle Identification Numbers
+paths:
+  /DecodeVin/{vin}:
+    get:
+      tags:
+      - VIN Decoding
+      summary: Decode a VIN
+      description: Decodes a Vehicle Identification Number into its constituent parts.
+      parameters:
+      - $ref: '#/components/parameters/Vin'
+      - $ref: '#/components/parameters/ModelYear'
+      - $ref: '#/components/parameters/Format'
+      responses:
+        '200':
+          description: Successful VIN decode
+  /DecodeVinValues/{vin}:
+    get:
+      tags:
+      - VIN Decoding
+      summary: Decode a VIN (flat values)
+      description: Decodes a VIN and returns the results as a single flat object of values.
+      parameters:
+      - $ref: '#/components/parameters/Vin'
+      - $ref: '#/components/parameters/ModelYear'
+      - $ref: '#/components/parameters/Format'
+      responses:
+        '200':
+          description: Successful VIN decode (flat values)
+  /DecodeVinExtended/{vin}:
+    get:
+      tags:
+      - VIN Decoding
+      summary: Decode a VIN with extended details
+      parameters:
+      - $ref: '#/components/parameters/Vin'
+      - $ref: '#/components/parameters/ModelYear'
+      - $ref: '#/components/parameters/Format'
+      responses:
+        '200':
+          description: Successful extended VIN decode
+  /DecodeVinValuesExtended/{vin}:
+    get:
+      tags:
+      - VIN Decoding
+      summary: Decode a VIN with extended details (flat values)
+      parameters:
+      - $ref: '#/components/parameters/Vin'
+      - $ref: '#/components/parameters/ModelYear'
+      - $ref: '#/components/parameters/Format'
+      responses:
+        '200':
+          description: Successful extended VIN decode (flat values)
+  /DecodeVINValuesBatch/:
+    post:
+      tags:
+      - VIN Decoding
+      summary: Batch decode multiple VINs
+      description: Decodes a batch of up to 50 VIN/year pairs in a single request.
+      requestBody:
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                DATA:
+                  type: string
+                  example: 5UXWX7C5*BA,2011;5YJSA3DS*EF
+                format:
+                  type: string
+                  enum:
+                  - json
+                  - xml
+                  - csv
+      responses:
+        '200':
+          description: Batch decode results
+components:
+  parameters:
+    Format:
+      name: format
+      in: query
+      description: Response format.
+      schema:
+        type: string
+        enum:
+        - json
+        - xml
+        - csv
+        default: xml
+    Vin:
+      name: vin
+      in: path
+      required: true
+      description: Vehicle Identification Number (asterisks may be used for unknown digits).
+      schema:
+        type: string
+    ModelYear:
+      name: modelyear
+      in: query
+      description: Optional vehicle model year for improved decode accuracy.
+      schema:
+        type: integer

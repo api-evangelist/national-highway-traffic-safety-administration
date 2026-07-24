@@ -1,0 +1,112 @@
+openapi: 3.0.3
+info:
+  title: NHTSA vPIC Vehicle Equipment API
+  description: The NHTSA Product Information Catalog Vehicle Listing (vPIC) API provides endpoints to gather information on vehicles and their specifications, including decoding Vehicle Identification Numbers (VINs), accessing manufacturer details, and retrieving make, model, and equipment data. The vPIC dataset is populated using information submitted by motor vehicle manufacturers through the Part 565 submittals.
+  version: 1.0.0
+  contact:
+    name: NHTSA
+    url: https://vpic.nhtsa.dot.gov/api/
+  license:
+    name: Public Domain
+    url: https://www.usa.gov/government-works
+servers:
+- url: https://vpic.nhtsa.dot.gov/api/vehicles
+  description: NHTSA vPIC API production server
+tags:
+- name: Equipment
+  description: Equipment, parts, and Canadian vehicle specifications
+paths:
+  /GetEquipmentPlantCodes:
+    get:
+      tags:
+      - Equipment
+      summary: Get equipment plant codes
+      parameters:
+      - name: year
+        in: query
+        required: true
+        schema:
+          type: integer
+      - name: equipmentType
+        in: query
+        schema:
+          type: integer
+      - name: reportType
+        in: query
+        schema:
+          type: string
+      - $ref: '#/components/parameters/Format'
+      responses:
+        '200':
+          description: Equipment plant codes
+  /GetParts:
+    get:
+      tags:
+      - Equipment
+      summary: Get parts
+      parameters:
+      - name: type
+        in: query
+        schema:
+          type: integer
+      - name: fromDate
+        in: query
+        schema:
+          type: string
+      - name: toDate
+        in: query
+        schema:
+          type: string
+      - name: manufacturer
+        in: query
+        schema:
+          type: string
+      - name: page
+        in: query
+        schema:
+          type: integer
+      - $ref: '#/components/parameters/Format'
+      responses:
+        '200':
+          description: Parts results
+  /GetCanadianVehicleSpecifications/:
+    get:
+      tags:
+      - Equipment
+      summary: Get Canadian vehicle specifications
+      parameters:
+      - name: year
+        in: query
+        required: true
+        schema:
+          type: integer
+      - name: make
+        in: query
+        required: true
+        schema:
+          type: string
+      - name: model
+        in: query
+        schema:
+          type: string
+      - name: units
+        in: query
+        schema:
+          type: string
+      - $ref: '#/components/parameters/Format'
+      responses:
+        '200':
+          description: Canadian vehicle specifications
+components:
+  parameters:
+    Format:
+      name: format
+      in: query
+      description: Response format.
+      schema:
+        type: string
+        enum:
+        - json
+        - xml
+        - csv
+        default: xml
