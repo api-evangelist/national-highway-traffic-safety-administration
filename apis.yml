@@ -5,7 +5,19 @@ description: >-
   vehicle recall data and the Product Information Catalog Vehicle Listing (vPIC) for decoding Vehicle Identification
   Numbers (VINs) and accessing vehicle specifications submitted by manufacturers.
 type: Index
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+accessModel:
+  pricing: freemium
+  onboarding: unknown
+  trial: false
+  try_now: false
+  public: false
+  label: Freemium
+  confidence: medium
+  source:
+  - plans
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/national-highway-traffic-safety-administration.png
 url: >-
   https://raw.githubusercontent.com/api-evangelist/national-highway-traffic-safety-administration/refs/heads/main/apis.yml
 created: '2024-03-30'
@@ -17,24 +29,84 @@ tags:
   - Transportation
   - Vehicles
 apis:
-  - aid: national-highway-traffic-safety-administration:vehicle-api
-    name: NHTSA vPIC Vehicle API
-    description: >-
-      The NHTSA Product Information Catalog Vehicle Listing (vPIC) API provides different ways to gather information on
-      vehicles and their specifications, including decoding VINs, retrieving manufacturer details, and accessing makes,
-      models, equipment, and reference data.
-    humanURL: https://vpic.nhtsa.dot.gov/api/
-    baseURL: https://vpic.nhtsa.dot.gov/api/vehicles
-    tags:
-      - Safety
-      - Vehicles
-      - VIN
-    properties:
-      - type: Documentation
-        url: https://vpic.nhtsa.dot.gov/api/
-      - type: OpenAPI
-        url: >-
-          https://raw.githubusercontent.com/api-evangelist/national-highway-traffic-safety-administration/refs/heads/main/openapi/national-highway-traffic-safety-administration-openapi.yml
+- aid: >-
+    national-highway-traffic-safety-administration:national-highway-traffic-safety-administration-equipment-api
+  name: National Highway Traffic Safety Administration Equipment API
+  description: Equipment, parts, and Canadian vehicle specifications
+  humanURL: https://vpic.nhtsa.dot.gov/api/
+  baseURL: https://vpic.nhtsa.dot.gov/api/vehicles
+  tags:
+  - Equipment
+  properties:
+  - type: OpenAPI
+    url: openapi/national-highway-traffic-safety-administration-equipment-api-openapi.yml
+  - type: Documentation
+    url: https://vpic.nhtsa.dot.gov/api/
+- aid: >-
+    national-highway-traffic-safety-administration:national-highway-traffic-safety-administration-makes-and-models-api
+  name: National Highway Traffic Safety Administration Makes and Models API
+  description: Endpoints for vehicle make and model information
+  humanURL: https://vpic.nhtsa.dot.gov/api/
+  baseURL: https://vpic.nhtsa.dot.gov/api/vehicles
+  tags:
+  - Makes and Models
+  properties:
+  - type: OpenAPI
+    url: openapi/national-highway-traffic-safety-administration-makes-and-models-api-openapi.yml
+  - type: Documentation
+    url: https://vpic.nhtsa.dot.gov/api/
+- aid: >-
+    national-highway-traffic-safety-administration:national-highway-traffic-safety-administration-manufacturers-api
+  name: National Highway Traffic Safety Administration Manufacturers API
+  description: Endpoints for manufacturer and World Manufacturer Identifier (WMI) data
+  humanURL: https://vpic.nhtsa.dot.gov/api/
+  baseURL: https://vpic.nhtsa.dot.gov/api/vehicles
+  tags:
+  - Manufacturers
+  properties:
+  - type: OpenAPI
+    url: openapi/national-highway-traffic-safety-administration-manufacturers-api-openapi.yml
+  - type: Documentation
+    url: https://vpic.nhtsa.dot.gov/api/
+- aid: >-
+    national-highway-traffic-safety-administration:national-highway-traffic-safety-administration-reference-api
+  name: National Highway Traffic Safety Administration Reference API
+  description: Reference variables and value lists
+  humanURL: https://vpic.nhtsa.dot.gov/api/
+  baseURL: https://vpic.nhtsa.dot.gov/api/vehicles
+  tags:
+  - Reference
+  properties:
+  - type: OpenAPI
+    url: openapi/national-highway-traffic-safety-administration-reference-api-openapi.yml
+  - type: Documentation
+    url: https://vpic.nhtsa.dot.gov/api/
+- aid: >-
+    national-highway-traffic-safety-administration:national-highway-traffic-safety-administration-vehicle-types-api
+  name: National Highway Traffic Safety Administration Vehicle Types API
+  description: Endpoints related to vehicle types
+  humanURL: https://vpic.nhtsa.dot.gov/api/
+  baseURL: https://vpic.nhtsa.dot.gov/api/vehicles
+  tags:
+  - Vehicle Types
+  properties:
+  - type: OpenAPI
+    url: openapi/national-highway-traffic-safety-administration-vehicle-types-api-openapi.yml
+  - type: Documentation
+    url: https://vpic.nhtsa.dot.gov/api/
+- aid: >-
+    national-highway-traffic-safety-administration:national-highway-traffic-safety-administration-vin-decoding-api
+  name: National Highway Traffic Safety Administration VIN Decoding API
+  description: Endpoints for decoding Vehicle Identification Numbers
+  humanURL: https://vpic.nhtsa.dot.gov/api/
+  baseURL: https://vpic.nhtsa.dot.gov/api/vehicles
+  tags:
+  - VIN Decoding
+  properties:
+  - type: OpenAPI
+    url: openapi/national-highway-traffic-safety-administration-vin-decoding-api-openapi.yml
+  - type: Documentation
+    url: https://vpic.nhtsa.dot.gov/api/
 common:
   - type: AgenticAccess
     url: agentic-access/national-highway-traffic-safety-administration-agentic-access.yml
