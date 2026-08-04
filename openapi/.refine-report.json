@@ -1,0 +1,24 @@
+{
+  "provider": "national-highway-traffic-safety-administration",
+  "sources": [
+    "national-highway-traffic-safety-administration-equipment-api-openapi.yml",
+    "national-highway-traffic-safety-administration-makes-and-models-api-openapi.yml",
+    "national-highway-traffic-safety-administration-manufacturers-api-openapi.yml",
+    "national-highway-traffic-safety-administration-reference-api-openapi.yml",
+    "national-highway-traffic-safety-administration-vehicle-types-api-openapi.yml",
+    "national-highway-traffic-safety-administration-vin-decoding-api-openapi.yml"
+  ],
+  "outputs": [
+    "national-highway-traffic-safety-administration-equipment-api-openapi.yml",
+    "national-highway-traffic-safety-administration-makes-and-models-api-openapi.yml",
+    "national-highway-traffic-safety-administration-manufacturers-api-openapi.yml",
+    "national-highway-traffic-safety-administration-reference-api-openapi.yml",
+    "national-highway-traffic-safety-administration-vehicle-types-api-openapi.yml",
+    "national-highway-traffic-safety-administration-vin-decoding-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}

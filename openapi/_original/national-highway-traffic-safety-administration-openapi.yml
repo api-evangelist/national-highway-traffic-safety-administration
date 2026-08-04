@@ -1,0 +1,469 @@
+openapi: 3.0.3
+info:
+  title: NHTSA vPIC Vehicle API
+  description: >-
+    The NHTSA Product Information Catalog Vehicle Listing (vPIC) API provides
+    endpoints to gather information on vehicles and their specifications,
+    including decoding Vehicle Identification Numbers (VINs), accessing
+    manufacturer details, and retrieving make, model, and equipment data.
+    The vPIC dataset is populated using information submitted by motor vehicle
+    manufacturers through the Part 565 submittals.
+  version: "1.0.0"
+  contact:
+    name: NHTSA
+    url: https://vpic.nhtsa.dot.gov/api/
+  license:
+    name: Public Domain
+    url: https://www.usa.gov/government-works
+servers:
+  - url: https://vpic.nhtsa.dot.gov/api/vehicles
+    description: NHTSA vPIC API production server
+tags:
+  - name: VIN Decoding
+    description: Endpoints for decoding Vehicle Identification Numbers
+  - name: Manufacturers
+    description: Endpoints for manufacturer and World Manufacturer Identifier (WMI) data
+  - name: Makes and Models
+    description: Endpoints for vehicle make and model information
+  - name: Vehicle Types
+    description: Endpoints related to vehicle types
+  - name: Reference
+    description: Reference variables and value lists
+  - name: Equipment
+    description: Equipment, parts, and Canadian vehicle specifications
+paths:
+  /DecodeVin/{vin}:
+    get:
+      tags:
+        - VIN Decoding
+      summary: Decode a VIN
+      description: Decodes a Vehicle Identification Number into its constituent parts.
+      parameters:
+        - $ref: '#/components/parameters/Vin'
+        - $ref: '#/components/parameters/ModelYear'
+        - $ref: '#/components/parameters/Format'
+      responses:
+        '200':
+          description: Successful VIN decode
+  /DecodeVinValues/{vin}:
+    get:
+      tags:
+        - VIN Decoding
+      summary: Decode a VIN (flat values)
+      description: Decodes a VIN and returns the results as a single flat object of values.
+      parameters:
+        - $ref: '#/components/parameters/Vin'
+        - $ref: '#/components/parameters/ModelYear'
+        - $ref: '#/components/parameters/Format'
+      responses:
+        '200':
+          description: Successful VIN decode (flat values)
+  /DecodeVinExtended/{vin}:
+    get:
+      tags:
+        - VIN Decoding
+      summary: Decode a VIN with extended details
+      parameters:
+        - $ref: '#/components/parameters/Vin'
+        - $ref: '#/components/parameters/ModelYear'
+        - $ref: '#/components/parameters/Format'
+      responses:
+        '200':
+          description: Successful extended VIN decode
+  /DecodeVinValuesExtended/{vin}:
+    get:
+      tags:
+        - VIN Decoding
+      summary: Decode a VIN with extended details (flat values)
+      parameters:
+        - $ref: '#/components/parameters/Vin'
+        - $ref: '#/components/parameters/ModelYear'
+        - $ref: '#/components/parameters/Format'
+      responses:
+        '200':
+          description: Successful extended VIN decode (flat values)
+  /DecodeVINValuesBatch/:
+    post:
+      tags:
+        - VIN Decoding
+      summary: Batch decode multiple VINs
+      description: Decodes a batch of up to 50 VIN/year pairs in a single request.
+      requestBody:
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                DATA:
+                  type: string
+                  example: "5UXWX7C5*BA,2011;5YJSA3DS*EF"
+                format:
+                  type: string
+                  enum: [json, xml, csv]
+      responses:
+        '200':
+          description: Batch decode results
+  /DecodeWMI/{wmi}:
+    get:
+      tags:
+        - Manufacturers
+      summary: Decode a World Manufacturer Identifier
+      parameters:
+        - name: wmi
+          in: path
+          required: true
+          schema:
+            type: string
+        - $ref: '#/components/parameters/Format'
+      responses:
+        '200':
+          description: Decoded WMI
+  /GetWMIsForManufacturer/{manufacturer}:
+    get:
+      tags:
+        - Manufacturers
+      summary: Get WMIs for a manufacturer
+      parameters:
+        - name: manufacturer
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: vehicleType
+          in: query
+          schema:
+            type: string
+        - $ref: '#/components/parameters/Format'
+      responses:
+        '200':
+          description: WMIs for the manufacturer
+  /GetAllManufacturers:
+    get:
+      tags:
+        - Manufacturers
+      summary: Get all manufacturers
+      parameters:
+        - name: ManufacturerType
+          in: query
+          schema:
+            type: string
+        - name: page
+          in: query
+          schema:
+            type: integer
+        - $ref: '#/components/parameters/Format'
+      responses:
+        '200':
+          description: All manufacturers
+  /GetManufacturerDetails/{manufacturer}:
+    get:
+      tags:
+        - Manufacturers
+      summary: Get manufacturer details
+      parameters:
+        - name: manufacturer
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: page
+          in: query
+          schema:
+            type: integer
+        - $ref: '#/components/parameters/Format'
+      responses:
+        '200':
+          description: Manufacturer details
+  /GetAllMakes:
+    get:
+      tags:
+        - Makes and Models
+      summary: Get all makes
+      parameters:
+        - $ref: '#/components/parameters/Format'
+      responses:
+        '200':
+          description: All makes
+  /GetMakeForManufacturer/{manufacturer}:
+    get:
+      tags:
+        - Makes and Models
+      summary: Get makes for a manufacturer
+      parameters:
+        - name: manufacturer
+          in: path
+          required: true
+          schema:
+            type: string
+        - $ref: '#/components/parameters/Format'
+      responses:
+        '200':
+          description: Makes for the manufacturer
+  /GetMakesForManufacturerAndYear/{manufacturer}:
+    get:
+      tags:
+        - Makes and Models
+      summary: Get makes for a manufacturer and year
+      parameters:
+        - name: manufacturer
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: year
+          in: query
+          required: true
+          schema:
+            type: integer
+        - $ref: '#/components/parameters/Format'
+      responses:
+        '200':
+          description: Makes for the manufacturer and year
+  /GetMakesForVehicleType/{vehicleType}:
+    get:
+      tags:
+        - Makes and Models
+      summary: Get makes for a vehicle type
+      parameters:
+        - name: vehicleType
+          in: path
+          required: true
+          schema:
+            type: string
+        - $ref: '#/components/parameters/Format'
+      responses:
+        '200':
+          description: Makes for the vehicle type
+  /GetModelsForMake/{makeName}:
+    get:
+      tags:
+        - Makes and Models
+      summary: Get models for a make
+      parameters:
+        - name: makeName
+          in: path
+          required: true
+          schema:
+            type: string
+        - $ref: '#/components/parameters/Format'
+      responses:
+        '200':
+          description: Models for the make
+  /GetModelsForMakeId/{makeId}:
+    get:
+      tags:
+        - Makes and Models
+      summary: Get models for a make ID
+      parameters:
+        - name: makeId
+          in: path
+          required: true
+          schema:
+            type: integer
+        - $ref: '#/components/parameters/Format'
+      responses:
+        '200':
+          description: Models for the make ID
+  /GetModelsForMakeYear/make/{make}/modelyear/{modelyear}:
+    get:
+      tags:
+        - Makes and Models
+      summary: Get models for a make and model year
+      parameters:
+        - name: make
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: modelyear
+          in: path
+          required: true
+          schema:
+            type: integer
+        - $ref: '#/components/parameters/Format'
+      responses:
+        '200':
+          description: Models for make and year
+  /GetModelsForMakeIdYear/makeId/{makeId}/modelyear/{modelyear}:
+    get:
+      tags:
+        - Makes and Models
+      summary: Get models for a make ID and model year
+      parameters:
+        - name: makeId
+          in: path
+          required: true
+          schema:
+            type: integer
+        - name: modelyear
+          in: path
+          required: true
+          schema:
+            type: integer
+        - $ref: '#/components/parameters/Format'
+      responses:
+        '200':
+          description: Models for make ID and year
+  /GetVehicleTypesForMake/{makeName}:
+    get:
+      tags:
+        - Vehicle Types
+      summary: Get vehicle types for a make
+      parameters:
+        - name: makeName
+          in: path
+          required: true
+          schema:
+            type: string
+        - $ref: '#/components/parameters/Format'
+      responses:
+        '200':
+          description: Vehicle types for the make
+  /GetVehicleTypesForMakeId/{makeId}:
+    get:
+      tags:
+        - Vehicle Types
+      summary: Get vehicle types for a make ID
+      parameters:
+        - name: makeId
+          in: path
+          required: true
+          schema:
+            type: integer
+        - $ref: '#/components/parameters/Format'
+      responses:
+        '200':
+          description: Vehicle types for the make ID
+  /GetVehicleVariableList:
+    get:
+      tags:
+        - Reference
+      summary: Get list of vehicle variables
+      parameters:
+        - $ref: '#/components/parameters/Format'
+      responses:
+        '200':
+          description: Vehicle variable list
+  /GetVehicleVariableValuesList/{variable}:
+    get:
+      tags:
+        - Reference
+      summary: Get values for a vehicle variable
+      parameters:
+        - name: variable
+          in: path
+          required: true
+          schema:
+            type: string
+        - $ref: '#/components/parameters/Format'
+      responses:
+        '200':
+          description: Variable values list
+  /GetEquipmentPlantCodes:
+    get:
+      tags:
+        - Equipment
+      summary: Get equipment plant codes
+      parameters:
+        - name: year
+          in: query
+          required: true
+          schema:
+            type: integer
+        - name: equipmentType
+          in: query
+          schema:
+            type: integer
+        - name: reportType
+          in: query
+          schema:
+            type: string
+        - $ref: '#/components/parameters/Format'
+      responses:
+        '200':
+          description: Equipment plant codes
+  /GetParts:
+    get:
+      tags:
+        - Equipment
+      summary: Get parts
+      parameters:
+        - name: type
+          in: query
+          schema:
+            type: integer
+        - name: fromDate
+          in: query
+          schema:
+            type: string
+        - name: toDate
+          in: query
+          schema:
+            type: string
+        - name: manufacturer
+          in: query
+          schema:
+            type: string
+        - name: page
+          in: query
+          schema:
+            type: integer
+        - $ref: '#/components/parameters/Format'
+      responses:
+        '200':
+          description: Parts results
+  /GetCanadianVehicleSpecifications/:
+    get:
+      tags:
+        - Equipment
+      summary: Get Canadian vehicle specifications
+      parameters:
+        - name: year
+          in: query
+          required: true
+          schema:
+            type: integer
+        - name: make
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: model
+          in: query
+          schema:
+            type: string
+        - name: units
+          in: query
+          schema:
+            type: string
+        - $ref: '#/components/parameters/Format'
+      responses:
+        '200':
+          description: Canadian vehicle specifications
+components:
+  parameters:
+    Vin:
+      name: vin
+      in: path
+      required: true
+      description: Vehicle Identification Number (asterisks may be used for unknown digits).
+      schema:
+        type: string
+    ModelYear:
+      name: modelyear
+      in: query
+      description: Optional vehicle model year for improved decode accuracy.
+      schema:
+        type: integer
+    Format:
+      name: format
+      in: query
+      description: Response format.
+      schema:
+        type: string
+        enum:
+          - json
+          - xml
+          - csv
+        default: xml
