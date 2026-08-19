@@ -1,0 +1,135 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "NHTSA vPIC Vehicle Equipment API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Equipment",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get equipment plant codes",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://vpic.nhtsa.dot.gov/api/vehicles/GetEquipmentPlantCodes",
+            "params": [
+              {
+                "name": "year",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "equipmentType",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "reportType",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "format",
+                "value": "",
+                "type": "query",
+                "description": "Response format."
+              }
+            ]
+          },
+          "docs": "Get equipment plant codes"
+        },
+        {
+          "info": {
+            "name": "Get parts",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://vpic.nhtsa.dot.gov/api/vehicles/GetParts",
+            "params": [
+              {
+                "name": "type",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "fromDate",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "toDate",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "manufacturer",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "format",
+                "value": "",
+                "type": "query",
+                "description": "Response format."
+              }
+            ]
+          },
+          "docs": "Get parts"
+        },
+        {
+          "info": {
+            "name": "Get Canadian vehicle specifications",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://vpic.nhtsa.dot.gov/api/vehicles/GetCanadianVehicleSpecifications/",
+            "params": [
+              {
+                "name": "year",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "make",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "model",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "units",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "format",
+                "value": "",
+                "type": "query",
+                "description": "Response format."
+              }
+            ]
+          },
+          "docs": "Get Canadian vehicle specifications"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

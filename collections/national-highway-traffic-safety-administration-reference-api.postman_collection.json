@@ -1,0 +1,184 @@
+{
+  "item": [
+    {
+      "id": "e9a39b2e-89b9-43fd-b932-1a7e780fc6e4",
+      "name": "Reference",
+      "description": {
+        "content": "Reference variables and value lists",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "48e20019-df83-48ac-aa3d-414fb7800655",
+          "name": "Get list of vehicle variables",
+          "request": {
+            "name": "Get list of vehicle variables",
+            "description": {},
+            "url": {
+              "path": [
+                "GetVehicleVariableList"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "format",
+                  "value": "xml",
+                  "description": "Response format."
+                }
+              ],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "06dc69da-ef94-4e78-9bad-93622058a26f",
+              "name": "Vehicle variable list",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "GetVehicleVariableList"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "format",
+                      "value": "xml"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "382f55eb-34fd-484a-b89a-85e33b8acb1f",
+          "name": "Get values for a vehicle variable",
+          "request": {
+            "name": "Get values for a vehicle variable",
+            "description": {},
+            "url": {
+              "path": [
+                "GetVehicleVariableValuesList",
+                ":variable"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "format",
+                  "value": "xml",
+                  "description": "Response format."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "variable",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "22316dc0-5079-4f33-b093-954e9ea1f0f7",
+              "name": "Variable values list",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "GetVehicleVariableValuesList",
+                    ":variable"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "format",
+                      "value": "xml"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "variable",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://vpic.nhtsa.dot.gov/api/vehicles",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "f2ca2ea5-c3f2-41cf-bd72-68eada25e40c",
+    "name": "NHTSA vPIC Vehicle Equipment Reference API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The NHTSA Product Information Catalog Vehicle Listing (vPIC) API provides endpoints to gather information on vehicles and their specifications, including decoding Vehicle Identification Numbers (VINs), accessing manufacturer details, and retrieving make, model, and equipment data. The vPIC dataset is populated using information submitted by motor vehicle manufacturers through the Part 565 submittals.\n\nContact Support:\n Name: NHTSA",
+      "type": "text/plain"
+    }
+  }
+}

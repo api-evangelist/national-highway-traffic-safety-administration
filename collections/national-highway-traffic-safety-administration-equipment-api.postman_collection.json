@@ -1,0 +1,346 @@
+{
+  "item": [
+    {
+      "id": "5f0b8352-a5a1-44ff-a1a9-a2ad3bf5c8b3",
+      "name": "Equipment",
+      "description": {
+        "content": "Equipment, parts, and Canadian vehicle specifications",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "277c3c5a-1f22-4e8d-9fc1-c88d360a83e6",
+          "name": "Get equipment plant codes",
+          "request": {
+            "name": "Get equipment plant codes",
+            "description": {},
+            "url": {
+              "path": [
+                "GetEquipmentPlantCodes"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "year",
+                  "value": "<integer>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "equipmentType",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "reportType",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "format",
+                  "value": "xml",
+                  "description": "Response format."
+                }
+              ],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "afbc2c83-c772-451e-bc05-b005b220cfe5",
+              "name": "Equipment plant codes",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "GetEquipmentPlantCodes"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "year",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "equipmentType",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "reportType",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "format",
+                      "value": "xml"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1ce0e5b0-c9f5-4ca9-a981-080d33cd40a4",
+          "name": "Get parts",
+          "request": {
+            "name": "Get parts",
+            "description": {},
+            "url": {
+              "path": [
+                "GetParts"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "type",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "fromDate",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "toDate",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "manufacturer",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "format",
+                  "value": "xml",
+                  "description": "Response format."
+                }
+              ],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "a8499580-5004-4a8a-94fb-024fa8bae6f4",
+              "name": "Parts results",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "GetParts"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "type",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "fromDate",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "toDate",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "manufacturer",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "format",
+                      "value": "xml"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "03b19f07-b2d7-4ab8-b5d6-ff97a3e122d7",
+          "name": "Get Canadian vehicle specifications",
+          "request": {
+            "name": "Get Canadian vehicle specifications",
+            "description": {},
+            "url": {
+              "path": [
+                "GetCanadianVehicleSpecifications",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "year",
+                  "value": "<integer>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "make",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "model",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "units",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "format",
+                  "value": "xml",
+                  "description": "Response format."
+                }
+              ],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "eaeec25f-a258-4bd1-b92e-32d12078b585",
+              "name": "Canadian vehicle specifications",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "GetCanadianVehicleSpecifications",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "year",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "make",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "model",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "units",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "format",
+                      "value": "xml"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://vpic.nhtsa.dot.gov/api/vehicles",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "731a7e3e-0073-466b-87e7-e5d444b8c432",
+    "name": "NHTSA vPIC Vehicle Equipment API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The NHTSA Product Information Catalog Vehicle Listing (vPIC) API provides endpoints to gather information on vehicles and their specifications, including decoding Vehicle Identification Numbers (VINs), accessing manufacturer details, and retrieving make, model, and equipment data. The vPIC dataset is populated using information submitted by motor vehicle manufacturers through the Part 565 submittals.\n\nContact Support:\n Name: NHTSA",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,220 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "NHTSA vPIC Vehicle Equipment Makes and Models API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Makes and Models",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get all makes",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://vpic.nhtsa.dot.gov/api/vehicles/GetAllMakes",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "query",
+                "description": "Response format."
+              }
+            ]
+          },
+          "docs": "Get all makes"
+        },
+        {
+          "info": {
+            "name": "Get makes for a manufacturer",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://vpic.nhtsa.dot.gov/api/vehicles/GetMakeForManufacturer/:manufacturer",
+            "params": [
+              {
+                "name": "manufacturer",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "format",
+                "value": "",
+                "type": "query",
+                "description": "Response format."
+              }
+            ]
+          },
+          "docs": "Get makes for a manufacturer"
+        },
+        {
+          "info": {
+            "name": "Get makes for a manufacturer and year",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://vpic.nhtsa.dot.gov/api/vehicles/GetMakesForManufacturerAndYear/:manufacturer",
+            "params": [
+              {
+                "name": "manufacturer",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "year",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "format",
+                "value": "",
+                "type": "query",
+                "description": "Response format."
+              }
+            ]
+          },
+          "docs": "Get makes for a manufacturer and year"
+        },
+        {
+          "info": {
+            "name": "Get makes for a vehicle type",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://vpic.nhtsa.dot.gov/api/vehicles/GetMakesForVehicleType/:vehicleType",
+            "params": [
+              {
+                "name": "vehicleType",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "format",
+                "value": "",
+                "type": "query",
+                "description": "Response format."
+              }
+            ]
+          },
+          "docs": "Get makes for a vehicle type"
+        },
+        {
+          "info": {
+            "name": "Get models for a make",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://vpic.nhtsa.dot.gov/api/vehicles/GetModelsForMake/:makeName",
+            "params": [
+              {
+                "name": "makeName",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "format",
+                "value": "",
+                "type": "query",
+                "description": "Response format."
+              }
+            ]
+          },
+          "docs": "Get models for a make"
+        },
+        {
+          "info": {
+            "name": "Get models for a make ID",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://vpic.nhtsa.dot.gov/api/vehicles/GetModelsForMakeId/:makeId",
+            "params": [
+              {
+                "name": "makeId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "format",
+                "value": "",
+                "type": "query",
+                "description": "Response format."
+              }
+            ]
+          },
+          "docs": "Get models for a make ID"
+        },
+        {
+          "info": {
+            "name": "Get models for a make and model year",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://vpic.nhtsa.dot.gov/api/vehicles/GetModelsForMakeYear/make/:make/modelyear/:modelyear",
+            "params": [
+              {
+                "name": "make",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "modelyear",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "format",
+                "value": "",
+                "type": "query",
+                "description": "Response format."
+              }
+            ]
+          },
+          "docs": "Get models for a make and model year"
+        },
+        {
+          "info": {
+            "name": "Get models for a make ID and model year",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://vpic.nhtsa.dot.gov/api/vehicles/GetModelsForMakeIdYear/makeId/:makeId/modelyear/:modelyear",
+            "params": [
+              {
+                "name": "makeId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "modelyear",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "format",
+                "value": "",
+                "type": "query",
+                "description": "Response format."
+              }
+            ]
+          },
+          "docs": "Get models for a make ID and model year"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

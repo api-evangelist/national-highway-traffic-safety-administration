@@ -1,0 +1,129 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "NHTSA vPIC Vehicle Equipment Manufacturers API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Manufacturers",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Decode a World Manufacturer Identifier",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://vpic.nhtsa.dot.gov/api/vehicles/DecodeWMI/:wmi",
+            "params": [
+              {
+                "name": "wmi",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "format",
+                "value": "",
+                "type": "query",
+                "description": "Response format."
+              }
+            ]
+          },
+          "docs": "Decode a World Manufacturer Identifier"
+        },
+        {
+          "info": {
+            "name": "Get WMIs for a manufacturer",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://vpic.nhtsa.dot.gov/api/vehicles/GetWMIsForManufacturer/:manufacturer",
+            "params": [
+              {
+                "name": "manufacturer",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "vehicleType",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "format",
+                "value": "",
+                "type": "query",
+                "description": "Response format."
+              }
+            ]
+          },
+          "docs": "Get WMIs for a manufacturer"
+        },
+        {
+          "info": {
+            "name": "Get all manufacturers",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://vpic.nhtsa.dot.gov/api/vehicles/GetAllManufacturers",
+            "params": [
+              {
+                "name": "ManufacturerType",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "format",
+                "value": "",
+                "type": "query",
+                "description": "Response format."
+              }
+            ]
+          },
+          "docs": "Get all manufacturers"
+        },
+        {
+          "info": {
+            "name": "Get manufacturer details",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://vpic.nhtsa.dot.gov/api/vehicles/GetManufacturerDetails/:manufacturer",
+            "params": [
+              {
+                "name": "manufacturer",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "format",
+                "value": "",
+                "type": "query",
+                "description": "Response format."
+              }
+            ]
+          },
+          "docs": "Get manufacturer details"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,166 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "NHTSA vPIC Vehicle Equipment VIN Decoding API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "VIN Decoding",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Decode a VIN",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://vpic.nhtsa.dot.gov/api/vehicles/DecodeVin/:vin",
+            "params": [
+              {
+                "name": "vin",
+                "value": "",
+                "type": "path",
+                "description": "Vehicle Identification Number (asterisks may be used for unknown digits)."
+              },
+              {
+                "name": "modelyear",
+                "value": "",
+                "type": "query",
+                "description": "Optional vehicle model year for improved decode accuracy."
+              },
+              {
+                "name": "format",
+                "value": "",
+                "type": "query",
+                "description": "Response format."
+              }
+            ]
+          },
+          "docs": "Decodes a Vehicle Identification Number into its constituent parts."
+        },
+        {
+          "info": {
+            "name": "Decode a VIN (flat values)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://vpic.nhtsa.dot.gov/api/vehicles/DecodeVinValues/:vin",
+            "params": [
+              {
+                "name": "vin",
+                "value": "",
+                "type": "path",
+                "description": "Vehicle Identification Number (asterisks may be used for unknown digits)."
+              },
+              {
+                "name": "modelyear",
+                "value": "",
+                "type": "query",
+                "description": "Optional vehicle model year for improved decode accuracy."
+              },
+              {
+                "name": "format",
+                "value": "",
+                "type": "query",
+                "description": "Response format."
+              }
+            ]
+          },
+          "docs": "Decodes a VIN and returns the results as a single flat object of values."
+        },
+        {
+          "info": {
+            "name": "Decode a VIN with extended details",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://vpic.nhtsa.dot.gov/api/vehicles/DecodeVinExtended/:vin",
+            "params": [
+              {
+                "name": "vin",
+                "value": "",
+                "type": "path",
+                "description": "Vehicle Identification Number (asterisks may be used for unknown digits)."
+              },
+              {
+                "name": "modelyear",
+                "value": "",
+                "type": "query",
+                "description": "Optional vehicle model year for improved decode accuracy."
+              },
+              {
+                "name": "format",
+                "value": "",
+                "type": "query",
+                "description": "Response format."
+              }
+            ]
+          },
+          "docs": "Decode a VIN with extended details"
+        },
+        {
+          "info": {
+            "name": "Decode a VIN with extended details (flat values)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://vpic.nhtsa.dot.gov/api/vehicles/DecodeVinValuesExtended/:vin",
+            "params": [
+              {
+                "name": "vin",
+                "value": "",
+                "type": "path",
+                "description": "Vehicle Identification Number (asterisks may be used for unknown digits)."
+              },
+              {
+                "name": "modelyear",
+                "value": "",
+                "type": "query",
+                "description": "Optional vehicle model year for improved decode accuracy."
+              },
+              {
+                "name": "format",
+                "value": "",
+                "type": "query",
+                "description": "Response format."
+              }
+            ]
+          },
+          "docs": "Decode a VIN with extended details (flat values)"
+        },
+        {
+          "info": {
+            "name": "Batch decode multiple VINs",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://vpic.nhtsa.dot.gov/api/vehicles/DecodeVINValuesBatch/",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "DATA",
+                  "value": ""
+                },
+                {
+                  "name": "format",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "Decodes a batch of up to 50 VIN/year pairs in a single request."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

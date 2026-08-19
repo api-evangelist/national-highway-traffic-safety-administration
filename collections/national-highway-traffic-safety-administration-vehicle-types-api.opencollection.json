@@ -1,0 +1,66 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "NHTSA vPIC Vehicle Equipment Vehicle Types API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Vehicle Types",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get vehicle types for a make",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://vpic.nhtsa.dot.gov/api/vehicles/GetVehicleTypesForMake/:makeName",
+            "params": [
+              {
+                "name": "makeName",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "format",
+                "value": "",
+                "type": "query",
+                "description": "Response format."
+              }
+            ]
+          },
+          "docs": "Get vehicle types for a make"
+        },
+        {
+          "info": {
+            "name": "Get vehicle types for a make ID",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://vpic.nhtsa.dot.gov/api/vehicles/GetVehicleTypesForMakeId/:makeId",
+            "params": [
+              {
+                "name": "makeId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "format",
+                "value": "",
+                "type": "query",
+                "description": "Response format."
+              }
+            ]
+          },
+          "docs": "Get vehicle types for a make ID"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

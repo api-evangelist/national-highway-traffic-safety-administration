@@ -1,0 +1,513 @@
+{
+  "item": [
+    {
+      "id": "da594bbf-1be9-4b4d-b5d7-af8a8579857c",
+      "name": "VIN Decoding",
+      "description": {
+        "content": "Endpoints for decoding Vehicle Identification Numbers",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "f3f39e18-5d17-4f83-96f9-ea0354d7f9a4",
+          "name": "Decode a VIN",
+          "request": {
+            "name": "Decode a VIN",
+            "description": {
+              "content": "Decodes a Vehicle Identification Number into its constituent parts.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "DecodeVin",
+                ":vin"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "modelyear",
+                  "value": "<integer>",
+                  "description": "Optional vehicle model year for improved decode accuracy."
+                },
+                {
+                  "disabled": false,
+                  "key": "format",
+                  "value": "xml",
+                  "description": "Response format."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "vin",
+                  "description": "(Required) Vehicle Identification Number (asterisks may be used for unknown digits)."
+                }
+              ]
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "2803bc97-366c-47af-837c-a15e9c96984f",
+              "name": "Successful VIN decode",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "DecodeVin",
+                    ":vin"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "modelyear",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "format",
+                      "value": "xml"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "vin",
+                      "description": "(Required) Vehicle Identification Number (asterisks may be used for unknown digits)."
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "9e643ea1-f93a-43bb-9243-c7c9a0d1bb8d",
+          "name": "Decode a VIN (flat values)",
+          "request": {
+            "name": "Decode a VIN (flat values)",
+            "description": {
+              "content": "Decodes a VIN and returns the results as a single flat object of values.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "DecodeVinValues",
+                ":vin"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "modelyear",
+                  "value": "<integer>",
+                  "description": "Optional vehicle model year for improved decode accuracy."
+                },
+                {
+                  "disabled": false,
+                  "key": "format",
+                  "value": "xml",
+                  "description": "Response format."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "vin",
+                  "description": "(Required) Vehicle Identification Number (asterisks may be used for unknown digits)."
+                }
+              ]
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "7253353a-bab1-44a7-8391-c02343b48868",
+              "name": "Successful VIN decode (flat values)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "DecodeVinValues",
+                    ":vin"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "modelyear",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "format",
+                      "value": "xml"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "vin",
+                      "description": "(Required) Vehicle Identification Number (asterisks may be used for unknown digits)."
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "6a2eea6d-6cb1-4bdc-abaf-5303d3b538ef",
+          "name": "Decode a VIN with extended details",
+          "request": {
+            "name": "Decode a VIN with extended details",
+            "description": {},
+            "url": {
+              "path": [
+                "DecodeVinExtended",
+                ":vin"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "modelyear",
+                  "value": "<integer>",
+                  "description": "Optional vehicle model year for improved decode accuracy."
+                },
+                {
+                  "disabled": false,
+                  "key": "format",
+                  "value": "xml",
+                  "description": "Response format."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "vin",
+                  "description": "(Required) Vehicle Identification Number (asterisks may be used for unknown digits)."
+                }
+              ]
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "316b2929-a20c-4489-b601-ff59ceb93fdb",
+              "name": "Successful extended VIN decode",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "DecodeVinExtended",
+                    ":vin"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "modelyear",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "format",
+                      "value": "xml"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "vin",
+                      "description": "(Required) Vehicle Identification Number (asterisks may be used for unknown digits)."
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "68a98a6c-bad5-40c6-b22d-49e89890a4c0",
+          "name": "Decode a VIN with extended details (flat values)",
+          "request": {
+            "name": "Decode a VIN with extended details (flat values)",
+            "description": {},
+            "url": {
+              "path": [
+                "DecodeVinValuesExtended",
+                ":vin"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "modelyear",
+                  "value": "<integer>",
+                  "description": "Optional vehicle model year for improved decode accuracy."
+                },
+                {
+                  "disabled": false,
+                  "key": "format",
+                  "value": "xml",
+                  "description": "Response format."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "vin",
+                  "description": "(Required) Vehicle Identification Number (asterisks may be used for unknown digits)."
+                }
+              ]
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "bed20e9b-50ab-433d-b0f6-312485255dc4",
+              "name": "Successful extended VIN decode (flat values)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "DecodeVinValuesExtended",
+                    ":vin"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "modelyear",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "format",
+                      "value": "xml"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "vin",
+                      "description": "(Required) Vehicle Identification Number (asterisks may be used for unknown digits)."
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a8b2c1f1-e23e-4f28-a598-19978f9106bb",
+          "name": "Batch decode multiple VINs",
+          "request": {
+            "name": "Batch decode multiple VINs",
+            "description": {
+              "content": "Decodes a batch of up to 50 VIN/year pairs in a single request.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "DecodeVINValuesBatch",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "DATA",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "format",
+                  "value": "<string>"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "e2d62aec-c456-4d1e-addd-69c45a3e59b2",
+              "name": "Batch decode results",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "DecodeVINValuesBatch",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "key": "DATA",
+                      "value": "5UXWX7C5*BA,2011;5YJSA3DS*EF"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://vpic.nhtsa.dot.gov/api/vehicles",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "67da78d6-5048-4889-9fb3-c4c27260c7bf",
+    "name": "NHTSA vPIC Vehicle Equipment VIN Decoding API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The NHTSA Product Information Catalog Vehicle Listing (vPIC) API provides endpoints to gather information on vehicles and their specifications, including decoding Vehicle Identification Numbers (VINs), accessing manufacturer details, and retrieving make, model, and equipment data. The vPIC dataset is populated using information submitted by motor vehicle manufacturers through the Part 565 submittals.\n\nContact Support:\n Name: NHTSA",
+      "type": "text/plain"
+    }
+  }
+}
