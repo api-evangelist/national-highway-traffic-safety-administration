@@ -5,6 +5,17 @@ description: >-
   vehicle recall data and the Product Information Catalog Vehicle Listing (vPIC) for decoding Vehicle Identification
   Numbers (VINs) and accessing vehicle specifications submitted by manufacturers.
 type: Index
+deliveryModel:
+  model: unknown
+  open_source: false
+  commercial: false
+  callable_host: true
+  label: Delivery model not determined — needs a product licence on record
+  confidence: low
+  source:
+  - openapi
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: freemium
   onboarding: unknown
