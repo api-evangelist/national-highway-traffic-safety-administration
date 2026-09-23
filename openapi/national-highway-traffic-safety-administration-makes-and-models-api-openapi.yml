@@ -1,6 +1,6 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
-  title: NHTSA vPIC Vehicle Equipment Makes and Models API
+  title: NHTSA vPIC Vehicle Makes and Models API
   description: The NHTSA Product Information Catalog Vehicle Listing (vPIC) API provides endpoints to gather information on vehicles and their specifications, including decoding Vehicle Identification Numbers (VINs), accessing manufacturer details, and retrieving make, model, and equipment data. The vPIC dataset is populated using information submitted by motor vehicle manufacturers through the Part 565 submittals.
   version: 1.0.0
   contact:
@@ -26,6 +26,8 @@ paths:
       responses:
         '200':
           description: All makes
+      operationId: getGetAllMakes
+      x-operation-id-source: derived
   /GetMakeForManufacturer/{manufacturer}:
     get:
       tags:
@@ -41,6 +43,8 @@ paths:
       responses:
         '200':
           description: Makes for the manufacturer
+      operationId: getGetMakeForManufacturerByManufacturer
+      x-operation-id-source: derived
   /GetMakesForManufacturerAndYear/{manufacturer}:
     get:
       tags:
@@ -61,6 +65,8 @@ paths:
       responses:
         '200':
           description: Makes for the manufacturer and year
+      operationId: getGetMakesForManufacturerAndYearByManufacturer
+      x-operation-id-source: derived
   /GetMakesForVehicleType/{vehicleType}:
     get:
       tags:
@@ -76,6 +82,8 @@ paths:
       responses:
         '200':
           description: Makes for the vehicle type
+      operationId: getGetMakesForVehicleTypeByVehicleType
+      x-operation-id-source: derived
   /GetModelsForMake/{makeName}:
     get:
       tags:
@@ -91,6 +99,8 @@ paths:
       responses:
         '200':
           description: Models for the make
+      operationId: getGetModelsForMakeByMakeName
+      x-operation-id-source: derived
   /GetModelsForMakeId/{makeId}:
     get:
       tags:
@@ -106,6 +116,8 @@ paths:
       responses:
         '200':
           description: Models for the make ID
+      operationId: getGetModelsForMakeIdByMakeId
+      x-operation-id-source: derived
   /GetModelsForMakeYear/make/{make}/modelyear/{modelyear}:
     get:
       tags:
@@ -126,6 +138,8 @@ paths:
       responses:
         '200':
           description: Models for make and year
+      operationId: getGetModelsForMakeYearMakeByMakeModelyearByModelyear
+      x-operation-id-source: derived
   /GetModelsForMakeIdYear/makeId/{makeId}/modelyear/{modelyear}:
     get:
       tags:
@@ -146,6 +160,8 @@ paths:
       responses:
         '200':
           description: Models for make ID and year
+      operationId: getGetModelsForMakeIdYearMakeIdByMakeIdModelyearByModelyear
+      x-operation-id-source: derived
 components:
   parameters:
     Format:

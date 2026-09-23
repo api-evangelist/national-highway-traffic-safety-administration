@@ -1,6 +1,6 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
-  title: NHTSA vPIC Vehicle Equipment VIN Decoding API
+  title: NHTSA vPIC Vehicle VIN Decoding API
   description: The NHTSA Product Information Catalog Vehicle Listing (vPIC) API provides endpoints to gather information on vehicles and their specifications, including decoding Vehicle Identification Numbers (VINs), accessing manufacturer details, and retrieving make, model, and equipment data. The vPIC dataset is populated using information submitted by motor vehicle manufacturers through the Part 565 submittals.
   version: 1.0.0
   contact:
@@ -29,6 +29,8 @@ paths:
       responses:
         '200':
           description: Successful VIN decode
+      operationId: getDecodeVinByVin
+      x-operation-id-source: derived
   /DecodeVinValues/{vin}:
     get:
       tags:
@@ -42,6 +44,8 @@ paths:
       responses:
         '200':
           description: Successful VIN decode (flat values)
+      operationId: getDecodeVinValuesByVin
+      x-operation-id-source: derived
   /DecodeVinExtended/{vin}:
     get:
       tags:
@@ -54,6 +58,8 @@ paths:
       responses:
         '200':
           description: Successful extended VIN decode
+      operationId: getDecodeVinExtendedByVin
+      x-operation-id-source: derived
   /DecodeVinValuesExtended/{vin}:
     get:
       tags:
@@ -66,6 +72,8 @@ paths:
       responses:
         '200':
           description: Successful extended VIN decode (flat values)
+      operationId: getDecodeVinValuesExtendedByVin
+      x-operation-id-source: derived
   /DecodeVINValuesBatch/:
     post:
       tags:
@@ -91,8 +99,23 @@ paths:
       responses:
         '200':
           description: Batch decode results
+      operationId: postDecodeVINValuesBatch
+      x-operation-id-source: derived
 components:
   parameters:
+    ModelYear:
+      name: modelyear
+      in: query
+      description: Optional vehicle model year for improved decode accuracy.
+      schema:
+        type: integer
+    Vin:
+      name: vin
+      in: path
+      required: true
+      description: Vehicle Identification Number (asterisks may be used for unknown digits).
+      schema:
+        type: string
     Format:
       name: format
       in: query
@@ -104,16 +127,3 @@ components:
         - xml
         - csv
         default: xml
-    Vin:
-      name: vin
-      in: path
-      required: true
-      description: Vehicle Identification Number (asterisks may be used for unknown digits).
-      schema:
-        type: string
-    ModelYear:
-      name: modelyear
-      in: query
-      description: Optional vehicle model year for improved decode accuracy.
-      schema:
-        type: integer

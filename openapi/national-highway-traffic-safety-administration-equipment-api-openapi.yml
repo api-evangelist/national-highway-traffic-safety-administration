@@ -1,4 +1,4 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
   title: NHTSA vPIC Vehicle Equipment API
   description: The NHTSA Product Information Catalog Vehicle Listing (vPIC) API provides endpoints to gather information on vehicles and their specifications, including decoding Vehicle Identification Numbers (VINs), accessing manufacturer details, and retrieving make, model, and equipment data. The vPIC dataset is populated using information submitted by motor vehicle manufacturers through the Part 565 submittals.
@@ -39,6 +39,8 @@ paths:
       responses:
         '200':
           description: Equipment plant codes
+      operationId: getGetEquipmentPlantCodes
+      x-operation-id-source: derived
   /GetParts:
     get:
       tags:
@@ -69,6 +71,8 @@ paths:
       responses:
         '200':
           description: Parts results
+      operationId: getGetParts
+      x-operation-id-source: derived
   /GetCanadianVehicleSpecifications/:
     get:
       tags:
@@ -97,6 +101,8 @@ paths:
       responses:
         '200':
           description: Canadian vehicle specifications
+      operationId: getGetCanadianVehicleSpecifications
+      x-operation-id-source: derived
 components:
   parameters:
     Format:

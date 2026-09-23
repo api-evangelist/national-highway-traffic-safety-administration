@@ -1,24 +1,30 @@
 {
   "provider": "national-highway-traffic-safety-administration",
   "sources": [
-    "national-highway-traffic-safety-administration-equipment-api-openapi.yml",
-    "national-highway-traffic-safety-administration-makes-and-models-api-openapi.yml",
-    "national-highway-traffic-safety-administration-manufacturers-api-openapi.yml",
-    "national-highway-traffic-safety-administration-reference-api-openapi.yml",
-    "national-highway-traffic-safety-administration-vehicle-types-api-openapi.yml",
-    "national-highway-traffic-safety-administration-vin-decoding-api-openapi.yml"
+    "_original/national-highway-traffic-safety-administration-openapi.yml"
   ],
   "outputs": [
     "national-highway-traffic-safety-administration-equipment-api-openapi.yml",
     "national-highway-traffic-safety-administration-makes-and-models-api-openapi.yml",
     "national-highway-traffic-safety-administration-manufacturers-api-openapi.yml",
     "national-highway-traffic-safety-administration-reference-api-openapi.yml",
-    "national-highway-traffic-safety-administration-vehicle-types-api-openapi.yml",
-    "national-highway-traffic-safety-administration-vin-decoding-api-openapi.yml"
+    "national-highway-traffic-safety-administration-vin-decoding-api-openapi.yml",
+    "national-highway-traffic-safety-administration-vehicle-types-api-openapi.yml"
   ],
   "archived": [],
   "errors": [],
   "warnings": [],
-  "notes": [],
-  "skipped": []
+  "notes": [
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "national-highway-traffic-safety-administration-openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
+    "apis.yml register: already-registered"
+  ],
+  "skipped": [
+    "national-highway-traffic-safety-administration-equipment-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "national-highway-traffic-safety-administration-makes-and-models-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "national-highway-traffic-safety-administration-manufacturers-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "national-highway-traffic-safety-administration-reference-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "national-highway-traffic-safety-administration-vehicle-types-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "national-highway-traffic-safety-administration-vin-decoding-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }

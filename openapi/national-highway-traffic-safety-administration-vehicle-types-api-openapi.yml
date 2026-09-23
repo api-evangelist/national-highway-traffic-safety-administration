@@ -1,6 +1,6 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
-  title: NHTSA vPIC Vehicle Equipment Vehicle Types API
+  title: NHTSA vPIC Vehicle Vehicle Types API
   description: The NHTSA Product Information Catalog Vehicle Listing (vPIC) API provides endpoints to gather information on vehicles and their specifications, including decoding Vehicle Identification Numbers (VINs), accessing manufacturer details, and retrieving make, model, and equipment data. The vPIC dataset is populated using information submitted by motor vehicle manufacturers through the Part 565 submittals.
   version: 1.0.0
   contact:
@@ -31,6 +31,8 @@ paths:
       responses:
         '200':
           description: Vehicle types for the make
+      operationId: getGetVehicleTypesForMakeByMakeName
+      x-operation-id-source: derived
   /GetVehicleTypesForMakeId/{makeId}:
     get:
       tags:
@@ -46,6 +48,8 @@ paths:
       responses:
         '200':
           description: Vehicle types for the make ID
+      operationId: getGetVehicleTypesForMakeIdByMakeId
+      x-operation-id-source: derived
 components:
   parameters:
     Format:
