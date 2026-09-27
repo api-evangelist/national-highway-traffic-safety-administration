@@ -35,7 +35,7 @@ created: '2024-03-30'
 modified: '2026-05-19'
 specificationVersion: '0.23'
 tags:
-  - Federal-Government
+  - Federal Government
   - Safety
   - Transportation
   - Vehicles
@@ -44,6 +44,7 @@ tags_raw:
   - Safety
   - Transportation
   - Vehicles
+  - Federal-Government
 apis:
 - aid: >-
     national-highway-traffic-safety-administration:national-highway-traffic-safety-administration-equipment-api

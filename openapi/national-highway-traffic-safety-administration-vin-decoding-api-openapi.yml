@@ -103,12 +103,6 @@ paths:
       x-operation-id-source: derived
 components:
   parameters:
-    ModelYear:
-      name: modelyear
-      in: query
-      description: Optional vehicle model year for improved decode accuracy.
-      schema:
-        type: integer
     Vin:
       name: vin
       in: path
@@ -127,3 +121,9 @@ components:
         - xml
         - csv
         default: xml
+    ModelYear:
+      name: modelyear
+      in: query
+      description: Optional vehicle model year for improved decode accuracy.
+      schema:
+        type: integer
