@@ -110,6 +110,12 @@ components:
       description: Vehicle Identification Number (asterisks may be used for unknown digits).
       schema:
         type: string
+    ModelYear:
+      name: modelyear
+      in: query
+      description: Optional vehicle model year for improved decode accuracy.
+      schema:
+        type: integer
     Format:
       name: format
       in: query
@@ -121,9 +127,3 @@ components:
         - xml
         - csv
         default: xml
-    ModelYear:
-      name: modelyear
-      in: query
-      description: Optional vehicle model year for improved decode accuracy.
-      schema:
-        type: integer
