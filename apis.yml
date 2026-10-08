@@ -127,6 +127,12 @@ apis:
   - type: Documentation
     url: https://vpic.nhtsa.dot.gov/api/
 common:
+  - type: Plans
+    url: plans/national-highway-traffic-safety-administration-plans-pricing.yml
+  - type: RateLimits
+    url: rate-limits/national-highway-traffic-safety-administration-rate-limits.yml
+  - type: FinOps
+    url: finops/national-highway-traffic-safety-administration-finops.yml
   - type: AgenticAccess
     url: agentic-access/national-highway-traffic-safety-administration-agentic-access.yml
   - type: DomainSecurity
