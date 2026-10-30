@@ -1,4 +1,4 @@
-# National Highway Traffic Safety Administration (national-highway-traffic-safety-administration)
+# National Highway Traffic Safety Administration
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -66,53 +66,122 @@
 
 The National Highway Traffic Safety Administration (NHTSA) provides APIs for vehicle safety information including vehicle recall data and the Product Information Catalog Vehicle Listing (vPIC) for decoding Vehicle Identification Numbers (VINs) and accessing vehicle specifications submitted by manufacturers.
 
-**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/national-highway-traffic-safety-administration/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/national-highway-traffic-safety-administration/refs/heads/main/apis.yml)
+**Areas:** Federal Government · Safety · Transportation · Vehicles
 
-## Scope
+## National Highway Traffic Safety Administration on APIs.io
 
-- **Type:** Index
+Everything profiled for National Highway Traffic Safety Administration is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/national-highway-traffic-safety-administration/](https://apis.io/providers/national-highway-traffic-safety-administration/)** — or go straight to one of the APIs or properties below.
 
-## Tags
+### APIs (6)
 
-- Federal Government
-- Safety
-- Transportation
-- Vehicles
+- [National Highway Traffic Safety Administration Equipment API](https://apis.io/apis/national-highway-traffic-safety-administration/national-highway-traffic-safety-administration-equipment-api/) — Equipment, parts, and Canadian vehicle specifications
+- [National Highway Traffic Safety Administration Makes and Models API](https://apis.io/apis/national-highway-traffic-safety-administration/national-highway-traffic-safety-administration-makes-and-models-api/) — Endpoints for vehicle make and model information
+- [National Highway Traffic Safety Administration Manufacturers API](https://apis.io/apis/national-highway-traffic-safety-administration/national-highway-traffic-safety-administration-manufacturers-api/) — Endpoints for manufacturer and World Manufacturer Identifier (WMI) data
+- [National Highway Traffic Safety Administration Reference API](https://apis.io/apis/national-highway-traffic-safety-administration/national-highway-traffic-safety-administration-reference-api/) — Reference variables and value lists
+- [National Highway Traffic Safety Administration Vehicle Types API](https://apis.io/apis/national-highway-traffic-safety-administration/national-highway-traffic-safety-administration-vehicle-types-api/) — Endpoints related to vehicle types
+- [National Highway Traffic Safety Administration VIN Decoding API](https://apis.io/apis/national-highway-traffic-safety-administration/national-highway-traffic-safety-administration-vin-decoding-api/) — Endpoints for decoding Vehicle Identification Numbers
 
-## Timestamps
+### Published properties
 
-- **Created:** 2024-03-30
-- **Modified:** 2026-05-19
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-## APIs
+#### Agentic access (1)
 
-### NHTSA vPIC Vehicle API
+Which operations an agent can call, which act, and which need a human in the loop.
 
-The NHTSA Product Information Catalog Vehicle Listing (vPIC) API provides different ways to gather information on vehicles and their specifications, including decoding VINs, retrieving manufacturer details, and accessing makes, models, equipment, and reference data.
+- [National Highway Traffic Safety Administration Agentic Access](https://apis.io/agentic-access/national-highway-traffic-safety-administration/national-highway-traffic-safety-administration-agentic-access/)
 
-- **Human URL:** [https://vpic.nhtsa.dot.gov/api/](https://vpic.nhtsa.dot.gov/api/)
-- **Base URL:** `https://vpic.nhtsa.dot.gov/api/vehicles`
+#### Collections (7)
 
-#### Tags
+Postman and Open Collection request collections.
 
-- Safety
-- Vehicles
-- VIN
+- [NHTSA vPIC Vehicle API](https://apis.io/collections/national-highway-traffic-safety-administration/open-national-highway-traffic-safety-administration/)
+- [NHTSA vPIC Vehicle Equipment API](https://apis.io/collections/national-highway-traffic-safety-administration/open-national-highway-traffic-safety-administration-equipment-api/)
+- [NHTSA vPIC Vehicle Equipment Makes and Models API](https://apis.io/collections/national-highway-traffic-safety-administration/open-national-highway-traffic-safety-administration-makes-and-models-api/)
+- [NHTSA vPIC Vehicle Equipment Manufacturers API](https://apis.io/collections/national-highway-traffic-safety-administration/open-national-highway-traffic-safety-administration-manufacturers-api/)
+- [NHTSA vPIC Vehicle Equipment Reference API](https://apis.io/collections/national-highway-traffic-safety-administration/open-national-highway-traffic-safety-administration-reference-api/)
+- [NHTSA vPIC Vehicle Equipment Vehicle Types API](https://apis.io/collections/national-highway-traffic-safety-administration/open-national-highway-traffic-safety-administration-vehicle-types-api/)
+- [NHTSA vPIC Vehicle Equipment VIN Decoding API](https://apis.io/collections/national-highway-traffic-safety-administration/open-national-highway-traffic-safety-administration-vin-decoding-api/)
 
-#### Properties
+#### Security (1)
 
-- [Documentation](https://vpic.nhtsa.dot.gov/api/)
-- [OpenAPI](https://raw.githubusercontent.com/api-evangelist/national-highway-traffic-safety-administration/refs/heads/main/openapi/national-highway-traffic-safety-administration-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/national-highway-traffic-safety-administration.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/national-highway-traffic-safety-administration.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+Authentication, trust centre, and vulnerability disclosure.
 
-## Common Properties
+- [National Highway Traffic Safety Administration Domain Security](https://apis.io/security/national-highway-traffic-safety-administration/national-highway-traffic-safety-administration-domain-security/)
 
-- [LinkedIn](https://www.linkedin.com/company/national-highway-traffic-safety-administration-nhtsa)
+#### Plans and pricing (1)
+
+Published plans, tiers and prices.
+
+- [National Highway Traffic Safety Administration Plans Pricing](https://apis.io/plans/national-highway-traffic-safety-administration/national-highway-traffic-safety-administration-plans-pricing/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [National Highway Traffic Safety Administration Rate Limits](https://apis.io/rate-limits/national-highway-traffic-safety-administration/national-highway-traffic-safety-administration-rate-limits/)
+
+#### FinOps (1)
+
+What the API costs to run, by operation.
+
+- [National Highway Traffic Safety Administration Finops](https://apis.io/finops/national-highway-traffic-safety-administration/national-highway-traffic-safety-administration-finops/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
 - [Website](https://www.nhtsa.gov/)
-- [Portal](https://vpic.nhtsa.dot.gov/api/)
 
-## Maintainers
+## API Evangelist rating
 
-**FN:** Kin Lane
-**Email:** kin@apievangelist.com
+**Kin Score 20.3** — emerging · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 57.1 |
+| Contract quality | 39.9 |
+| Contract governance | 0.0 |
+| Operational transparency | 7.9 |
+| Developer ergonomics | 19.0 |
+| Access clarity | 7.9 |
+
+**Agent readiness 17.9** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | — |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | partial |
+| Rate Limit Signal | derived (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 5.9** — Government & Public Sector
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/national-highway-traffic-safety-administration/](https://apis.io/providers/national-highway-traffic-safety-administration/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for National Highway Traffic Safety Administration: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/national-highway-traffic-safety-administration/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
